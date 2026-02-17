@@ -1,23 +1,141 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>Deleted Cookie</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
   <style>
     body {
       margin: 0;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       font-family: system-ui, sans-serif;
       background: #0e0e0e;
       color: #fff;
+      text-align: center;
+    }
+
+    header {
+      padding: 40px 20px 20px;
+    }
+
+    header img {
+      max-width: 700px;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    .games {
+      display: grid;
+      gap: 60px;
+    }
+
+    .game-card {
+      background: #181818;
+      padding: 30px;
+      border-radius: 12px;
+    }
+
+    .game-card img.promo {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    .platforms {
+      margin-top: 15px;
+    }
+
+    .platforms a img {
+      height: 45px;
+      margin: 10px;
+      transition: transform 0.2s ease;
+    }
+
+    .platforms a img:hover {
+      transform: scale(1.1);
+    }
+
+    footer {
+      padding: 40px;
+      opacity: 0.6;
+      font-size: 14px;
     }
   </style>
 </head>
+
 <body>
-    <img src="DeletedCookie_Logo_TEMP.png" alt="">
+
+  <header>
+    <img src="DeletedCookie_Logo_TEMP.png" alt="Deleted Cookie Logo">
+  </header>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>
+      Deleted Cookie is an independent game studio creating simple
+      and engaging experiences.  
+      We focus on fun mechanics and memorable style.
+    </p>
+  </section>
+
+  <section id="games">
+    <h2>Our Games</h2>
+
+    <div class="games">
+
+      <!-- PEDRO -->
+      <div class="game-card">
+        <h3>Garden sprites</h3>
+
+        <img src="games-promo/gardensprites.png" alt="Garden sprites Promo Image" class="promo">
+
+        <p>
+          Garden Sprites is a grid-based puzzle game where you guide enchanted stone animals to the goal.
+Each animal follows its own unique movement rules, and solving a level means learning how to combine them through logic, blocking, and careful planning.
+        </p>
+
+        <div class="platforms">
+          <a href="https://play.google.com/store/apps/details?id=com.DeletedCookieAB.GardenSprites" target="_blank">
+            <img src="google-play-badge.png" alt="Google Play">
+          <a href="https://deletedcookieab.itch.io/garden-sprites" target="_blank">
+            <img src="Itch-badge.png" alt="Itch.io">
+          </a>
+        </div>
+      </div>
+
+      <!-- COLORNUNDRUM -->
+      <div class="game-card">
+        <h3>Tiny space pirate</h3>
+
+        <img src="games-promo/tinyspacepirate.png" alt="Tiny Space Pirate Image" class="promo">
+
+        <p>
+          Tiny Space Pirate is a cozy adventure where you sail the stars, help quirky space locals, and uncover tiny stories across the galaxy. Upgrade your ship, complete charming quests, and explore a handcrafted universe full of oddballs, mysteries, and cosmic cats. It’s not about treasure it’s about who you meet along the way.
+        </p>
+
+        <div class="platforms">
+          <a href="https://store.steampowered.com/app/3921290/Tiny_space_pirate/" target="_blank">
+            <img src="steam-badge.png" alt="Steam">
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Deleted Cookie
+  </footer>
+
 </body>
 </html>
