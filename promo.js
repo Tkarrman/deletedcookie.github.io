@@ -3,22 +3,20 @@
     {
       "title": "Garden Sprites",
       "description": "Relaxing puzzle gameplay.",
-      "imageUrl": "https://yourname.gitlab.io/more/images/garden-sprites.png",
-      "linkUrl": "https://yourname.gitlab.io/garden-sprites/"
+          "imageUrl": "gardensprites.png",
+      "linkUrlIOS": "https://apps.apple.com/se/app/garden-sprites/id6759647886",
+      "linkUrlAndroid": "https://play.google.com/store/apps/details?id=com.DeletedCookieAB.GardenSprites"
     },
     {
-      "title": "Next Game",
-      "description": "Coming soon.",
-      "imageUrl": "https://yourname.gitlab.io/more/images/next-game.png",
-      "linkUrl": "https://yourname.gitlab.io/next-game/"
-    }
-  ],
-  "news": [
+      "title": "Tiny Space Pirate",
+      "description": "Avaiable on steam",
+      "imageUrl": "tinyspacepirate.png",
+      "linkUrl": "https://store.steampowered.com/app/3921290/Tiny_space_pirate/"
+    },
     {
-      "title": "Update 1.2",
-      "description": "New levels and improvements.",
-      "imageUrl": "https://yourname.gitlab.io/more/images/update.png",
-      "linkUrl": "https://yourname.gitlab.io/more/news/update-12.html"
+      "title": "ColorNundrum",
+      "description": "Puzzle game for fun",
+        "imageUrl": "colornundrum.png",
+      "linkUrlAndroid": "https://play.google.com/store/apps/details?id=com.DeletedCookieAB.ColorNundrum"
     }
-  ]
 }
