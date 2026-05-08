@@ -18,5 +18,6 @@
       "description": "Puzzle game for fun",
         "imageUrl": "colornundrum.png",
       "linkUrlAndroid": "https://play.google.com/store/apps/details?id=com.DeletedCookieAB.ColorNundrum"
-    }
+        }
+    ]
 }
