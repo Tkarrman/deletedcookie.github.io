@@ -72,8 +72,23 @@
     .button{border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:11px 16px;background:rgba(255,255,255,.06);font-weight:800;color:#fff;transition:.2s ease}
     .button.primary{background:#fff;color:#000}
     .button:hover{transform:translateY(-2px);border-color:#fff}
+
+    .featured{margin:14px 0 70px;position:relative;overflow:hidden;border-radius:34px;border:1px solid rgba(180,255,150,.22);background:linear-gradient(135deg,rgba(30,50,26,.92),rgba(8,8,8,.96) 48%,rgba(0,0,0,.98));box-shadow:0 30px 100px rgba(0,0,0,.65)}
+    .featured:before{content:"";position:absolute;inset:-1px;background:radial-gradient(circle at 18% 14%,rgba(180,255,150,.18),transparent 24rem),radial-gradient(circle at 82% 55%,rgba(255,255,255,.08),transparent 26rem);pointer-events:none}
+    .featured-inner{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center;padding:28px}
+    .featured-media{display:grid;gap:12px}
+    .featured-media .main-shot{border-radius:26px;overflow:hidden;border:1px solid rgba(255,255,255,.16);background:#111}
+    .featured-media .main-shot img{width:100%;aspect-ratio:16/8.2;object-fit:cover}
+    .featured-shots{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .featured-shots img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:18px;border:1px solid rgba(255,255,255,.14);background:#101010}
+    .featured-copy{padding:20px 18px 20px 4px}
+    .kicker{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(180,255,150,.35);color:#d8ffd0;background:rgba(120,180,95,.12);border-radius:999px;padding:8px 13px;font-weight:900;font-size:.78rem;text-transform:uppercase;letter-spacing:.09em;margin-bottom:18px}
+    .featured-copy h2{font-size:clamp(2.5rem,6vw,5.7rem);margin-bottom:14px}
+    .quote{font-size:clamp(1.15rem,2.2vw,1.55rem);color:#fff;font-weight:900;margin:0 0 14px!important}
+    .feature-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:20px 0 0;padding:0;list-style:none}
+    .feature-list li{border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.28);border-radius:16px;padding:12px 14px;color:#eceee7;font-weight:800;font-size:.92rem}
     .footer{border-top:1px solid rgba(255,255,255,.1);color:var(--muted);padding:34px 0 50px;text-align:center}
-    @media (max-width:900px){.hero,.game-inner{grid-template-columns:1fr}.hero{padding-top:54px}.nav-links{display:none}.game-inner{min-height:auto}.content{padding:26px}.shots{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:900px){.hero,.game-inner,.featured-inner{grid-template-columns:1fr}.hero{padding-top:54px}.nav-links{display:none}.game-inner{min-height:auto}.content{padding:26px}.shots{grid-template-columns:repeat(2,1fr)}.featured-copy{padding:4px}.feature-list{grid-template-columns:1fr}}
     @media (max-width:560px){.page,.nav-inner{width:min(100% - 24px,1180px)}.stats{grid-template-columns:1fr}.shots,.shots.two{grid-template-columns:1fr 1fr}.content{padding:22px}.media{padding:12px}h1{font-size:3.35rem}}
   </style>
 </head>
@@ -82,6 +97,7 @@
     <div class="nav-inner">
       <a class="brand" href="#top">Deleted Cookie <span>Studio Deck</span></a>
       <div class="nav-links">
+        <a href="#plague-crew">Plague Crew</a>
         <a href="#garden-sprites">Garden Sprites</a>
         <a href="#cargo-shuffler">Cargo Shuffler</a>
         <a href="#space-racer">Space Racer</a>
@@ -97,19 +113,56 @@
       <div>
         <div class="eyebrow"><span class="dot"></span> Indie games for mobile, PC and cozy chaos</div>
         <h1>Small games. Big personality.</h1>
-        <p class="lead">A polished studio deck for Deleted Cookie: puzzle games, tiny space adventures, arcade racing, disco climbing, and colorful quick-session challenges.</p>
+        <p class="lead">A polished studio deck for Deleted Cookie: from released puzzle games and cozy space adventures to our next bigger co-op chaos project.</p>
       </div>
       <aside class="hero-card" aria-label="Featured game artwork">
         <img src="images/image16.png" alt="Garden Sprites artwork" />
         <div class="stats">
-          <div class="stat"><strong>6</strong><span>Games</span></div>
+          <div class="stat"><strong>7</strong><span>Games</span></div>
           <div class="stat"><strong>3</strong><span>Platforms</span></div>
           <div class="stat"><strong>∞</strong><span>Cozy ideas</span></div>
         </div>
       </aside>
     </section>
 
-    <h2 class="section-title">Games</h2>
+
+    <section class="featured" id="plague-crew">
+        <div class="featured-inner">
+            <div class="featured-media">
+                <div class="main-shot"><img src="PlagueDoctor/image5.png" alt="Plague Crew key art"></div>
+                <div class="featured-shots">
+                    <img src="PlagueDoctor/image8.png" alt="Plague Crew village concept">
+                    <img src="PlagueDoctor/image2.png" alt="Plague Crew character concept">
+                    <img src="PlagueDoctor/image6.png" alt="Plague Crew villager concept">
+                </div>
+            </div>
+            <div class="featured-copy">
+                <span class="kicker">Next project · In development</span>
+                <h2>Plague Crew</h2>
+                <p class="quote">The plague is the easy part.</p>
+                <p>A chaotic co-op survival comedy/horror game where tiny plague doctors travel between infected villages, diagnose strange diseases, craft questionable medicine, and survive the consequences of their own terrible decisions.</p>
+                <p>Built around online co-op, dark humor, dynamic villages, proximity chat, crafting, panic, corpses, monsters, and emergent player stories.</p>
+                <ul class="feature-list">
+                    <li>1–4 player online co-op</li>
+                    <li>Dynamic village chaos</li>
+                    <li>Crafting & questionable cures</li>
+                    <li>Comedy horror events</li>
+                    <li>Physics item dragging</li>
+                    <li>Hub upgrades & progression</li>
+                </ul>
+            </div>
+        </div>
+        <div style="margin-top:20px;">
+            <a href="PlagueDoctor.html"
+               style="display:inline-block;padding:14px 24px;background:#98c76a;
+       color:#000;text-decoration:none;font-weight:700;border-radius:12px;
+       font-family:Arial,sans-serif;">
+                View Full Plague Crew Pitch Deck
+            </a>
+        </div>
+    </section>
+
+    <h2 class="section-title">Released & upcoming games</h2>
     <section class="grid">
       <article class="game" id="garden-sprites">
         <div class="game-inner">
