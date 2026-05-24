@@ -1,150 +1,383 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Plague Crew — Pitch Deck</title>
   <style>
-    :root{
-      --bg:#050604; --panel:#10120d; --panel2:#171a12; --text:#f4f1e7; --muted:#b8b09d;
-      --line:rgba(244,241,231,.15); --accent:#b7d86b; --accent2:#d8b46b; --danger:#b86b57;
-      --max:1180px;
+    :root {
+      --bg: #080908;
+      --panel: #11140f;
+      --panel-2: #171b13;
+      --text: #f1eadc;
+      --muted: #b7ad9c;
+      --accent: #a7c76b;
+      --accent-2: #d5ba73;
+      --danger: #b5654f;
+      --line: rgba(241,234,220,.12);
+      --shadow: 0 30px 80px rgba(0,0,0,.45);
     }
-    *{box-sizing:border-box} html{scroll-behavior:smooth}
-    body{margin:0;background:radial-gradient(circle at 20% 0%, #1b2113 0%, #050604 34%, #020302 100%);color:var(--text);font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Arial, sans-serif;line-height:1.55}
-    body:before{content:"";position:fixed;inset:0;pointer-events:none;background:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(to bottom, rgba(0,0,0,.8), transparent 80%)}
-    a{color:var(--accent)}
-    img{display:block;max-width:100%;height:auto;border-radius:22px;border:1px solid var(--line);box-shadow:0 28px 80px rgba(0,0,0,.45);background:#0d0f0b}
-    .wrap{width:min(var(--max), calc(100% - 40px));margin:0 auto}.nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(18px);background:rgba(5,6,4,.74);border-bottom:1px solid var(--line)}
-    .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 0}.brand{font-weight:800;letter-spacing:.08em;text-transform:uppercase}.navlinks{display:flex;gap:18px;flex-wrap:wrap}.navlinks a{color:var(--muted);text-decoration:none;font-size:14px}.navlinks a:hover{color:var(--text)}
-    .hero{min-height:92vh;display:grid;align-items:center;padding:76px 0 54px}.hero-grid{display:grid;grid-template-columns:1fr .95fr;gap:44px;align-items:center}.eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:.16em;font-size:13px;font-weight:800}.title{font-size:clamp(54px,9vw,118px);line-height:.86;margin:18px 0 18px;letter-spacing:-.07em}.tagline{font-family:Georgia,serif;font-size:clamp(25px,4vw,52px);font-style:italic;color:var(--accent2);line-height:1.05;margin:0 0 24px}.lead{font-size:clamp(18px,2.2vw,24px);color:#ddd6c7;max-width:760px}.hero-card{padding:18px;background:linear-gradient(145deg,rgba(183,216,107,.14),rgba(216,180,107,.05));border:1px solid var(--line);border-radius:30px}.meta{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}.meta div{padding:16px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.035)}.meta b{display:block;color:var(--accent);font-size:13px;text-transform:uppercase;letter-spacing:.1em}.meta span{color:var(--text);font-weight:700}
-    section{padding:86px 0;border-top:1px solid var(--line)}.section-head{display:grid;grid-template-columns:.45fr 1fr;gap:30px;align-items:end;margin-bottom:30px}.num{color:var(--accent);font-weight:900;letter-spacing:.12em}.section-head h2{font-size:clamp(34px,5vw,64px);line-height:.95;margin:0;letter-spacing:-.04em}.section-head p{margin:0;color:var(--muted);font-size:18px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.grid.two{grid-template-columns:repeat(2,1fr)}.card{background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.025));border:1px solid var(--line);border-radius:24px;padding:24px}.card h3{margin:0 0 10px;font-size:22px}.card p,.card li{color:var(--muted)}.card p{margin:0}.pill{display:inline-flex;border:1px solid rgba(183,216,107,.28);background:rgba(183,216,107,.08);border-radius:999px;padding:8px 12px;margin:5px 5px 0 0;color:#eaf4cb;font-size:14px;font-weight:700}.quote{font-family:Georgia,serif;font-size:clamp(27px,4vw,52px);line-height:1.08;color:var(--text);margin:0}.quote em{color:var(--accent2);font-style:italic}.split{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}.flow{counter-reset:step;display:grid;gap:12px}.step{counter-increment:step;display:grid;grid-template-columns:54px 1fr;gap:16px;align-items:start;padding:18px;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.03)}.step:before{content:counter(step);display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:rgba(183,216,107,.12);color:var(--accent);font-weight:900}.step b{display:block}.step span{color:var(--muted)}
-    .feature-list{columns:2;column-gap:22px;padding:0;margin:0;list-style:none}.feature-list li{break-inside:avoid;margin:0 0 12px;padding:16px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.03);color:var(--muted)}.feature-list b{color:var(--text)}
-    .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.milestone{position:relative;overflow:hidden}.milestone .date{color:var(--accent2);font-weight:800}.team{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.small{font-size:14px;color:var(--muted)}footer{padding:56px 0 80px;color:var(--muted);text-align:center;border-top:1px solid var(--line)}
-    @media (max-width:900px){.hero-grid,.section-head,.split{grid-template-columns:1fr}.grid,.grid.two,.timeline,.team,.meta{grid-template-columns:1fr}.feature-list{columns:1}.navlinks{display:none}.hero{min-height:auto}.title{font-size:58px}}
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(167,199,107,.16), transparent 34rem),
+        radial-gradient(circle at 85% 12%, rgba(181,101,79,.12), transparent 28rem),
+        linear-gradient(180deg, #080908 0%, #0d0f0c 55%, #070807 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(8,9,8,.72);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 14px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .brand { font-weight: 900; letter-spacing: .08em; text-transform: uppercase; font-size: 13px; }
+    .nav a { color: var(--muted); text-decoration: none; font-size: 13px; margin-left: 16px; }
+    .nav a:hover { color: var(--text); }
+
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 0 22px; }
+    section { padding: 84px 0; border-bottom: 1px solid var(--line); }
+    .hero { min-height: 92vh; display: grid; align-items: center; padding: 90px 0 70px; }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 44px; align-items: center; }
+    .eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: .16em; font-size: 12px; font-weight: 800; }
+    h1, h2, h3 { line-height: 1.05; margin: 0; }
+    h1 { font-size: clamp(56px, 9vw, 102px); letter-spacing: -0.07em; }
+    h2 { font-size: clamp(36px, 5.5vw, 52px); letter-spacing: -0.05em; margin-bottom: 24px; }
+    h3 { font-size: 24px; letter-spacing: -0.03em; margin-bottom: 10px; }
+    .lead { font-size: clamp(19px, 2.2vw, 28px); color: #fff7e8; max-width: 780px; line-height: 1.25; }
+    .quote { color: var(--accent-2); font-style: italic; font-weight: 800; margin: 20px 0; }
+    .muted { color: var(--muted); }
+    .hero-card, .card, .image-card, .table-card {
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.025));
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .hero-card { padding: 18px; transform: rotate(1deg); }
+    .hero-card img, .image-card img { border-radius: 18px; width: 100%; }
+
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 32px; }
+    .stat { padding: 18px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.04); }
+    .stat strong { display: block; font-size: 22px; color: var(--text); }
+    .stat span { color: var(--muted); font-size: 13px; }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: start; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .card { padding: 24px; }
+    .card p { margin: 0; color: var(--muted); }
+    .card ul { margin: 12px 0 0; padding-left: 18px; color: var(--muted); }
+    .tag { display: inline-flex; align-items:center; gap: 8px; padding: 7px 11px; border-radius: 999px; border:1px solid var(--line); color: var(--accent); background: rgba(167,199,107,.08); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing:.08em; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 28px; }
+    .section-head p { max-width: 560px; margin:0; color:var(--muted); }
+
+    .feature-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .feature { padding: 18px; border-radius: 18px; border: 1px solid var(--line); background: rgba(255,255,255,.035); }
+    .feature b { color: var(--text); }
+    .feature p { margin: 6px 0 0; color: var(--muted); font-size: 14px; }
+
+    .feature-list2 { display: grid; grid-template-columns: repeat(1, 1fr); gap: 14px; }
+    .feature { padding: 18px; border-radius: 18px; border: 1px solid var(--line); background: rgba(255,255,255,.035); }
+    .feature b { color: var(--text); }
+    .feature p { margin: 6px 0 0; color: var(--muted); font-size: 14px; }
+
+    .loop { counter-reset: loop; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+      .loop-item {
+          counter-increment: loop;
+          padding: 7px;
+          min-height: 116px;
+          min-width: 180px;
+          border-radius: 18px;
+          border: 1px solid var(--line);
+          background: rgba(255,255,255,.035);
+          position: relative;
+      }
+    .loop-item:before { content: counter(loop); color: #050605; background: var(--accent-2); width: 28px; height: 28px; border-radius: 999px; display: grid; place-items: center; font-weight: 900; margin-bottom: 14px; }
+
+    table { width: 100%; border-collapse: collapse; overflow: hidden; border-radius: 18px; }
+    th, td { padding: 15px 14px; border-bottom: 1px solid var(--line); text-align: left; }
+    th { color: var(--accent); background: rgba(167,199,107,.08); font-size: 13px; text-transform: uppercase; letter-spacing:.08em; }
+    td { color: var(--muted); }
+    tr:last-child td { border-bottom: 0; }
+
+    .timeline { display: grid; gap: 16px; }
+    .mile { display: grid; grid-template-columns: 180px 1fr; gap: 20px; padding: 22px; border: 1px solid var(--line); border-radius: 22px; background: rgba(255,255,255,.035); }
+    .date { color: var(--accent-2); font-weight: 900; }
+    .mile ul { margin: 8px 0 0; padding-left: 18px; color: var(--muted); }
+    .strategy { border-left: 4px solid var(--accent); }
+    .strategy.alt { border-left-color: var(--danger); }
+
+    .team { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .member { padding: 18px; border-radius: 18px; border: 1px solid var(--line); background: rgba(255,255,255,.035); }
+    .member b { display:block; font-size: 18px; }
+    .member small { color: var(--accent); font-weight:800; }
+    .member p { color: var(--muted); font-size: 13px; margin: 8px 0 0; }
+
+    .footer { padding: 60px 0 90px; text-align: center; color: var(--muted); }
+      .feature-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+          gap: 18px;
+          margin-top: 32px;
+      }
+
+      .feature-card {
+          background: linear-gradient( 180deg, rgba(255,255,255,.06), rgba(255,255,255,.03) );
+          border: 1px solid rgba(255,255,255,.1);
+          border-radius: 24px;
+          padding: 24px;
+          transition: .25s ease;
+      }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+
+        .feature-card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 15px;
+        }
+    @media (max-width: 900px) {
+      .hero-grid, .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      .stats, .loop, .team { grid-template-columns: 1fr 1fr; }
+      .mile { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 560px) {
+      section { padding: 58px 0; }
+      .stats, .loop, .team, .feature-list { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
-  <nav class="nav"><div class="wrap"><div class="brand">Plague Crew</div><div class="navlinks"><a href="#hook">Hook</a><a href="#game">Game</a><a href="#loop">Loop</a><a href="#production">Production</a><a href="#team">Team</a></div></div></nav>
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand">Deleted Cookie · Plague Crew</div>
+      <div class="nav-links">
+        <a href="#game">Game</a><a href="#market">Market</a><a href="#production">Production</a><a href="#team">Team</a>
+      </div>
+    </div>
+  </nav>
 
-  <header class="hero wrap" id="hook">
-    <div class="hero-grid">
-      <div>
-        <div class="eyebrow">Working title · Co-op survival comedy horror</div>
-        <h1 class="title">Plague<br>Crew</h1>
-        <p class="tagline">The plague is the easy part.</p>
-        <p class="lead">A chaotic 3D co-op game where tiny plague doctors travel between infected villages, diagnose diseases, craft questionable medicine, amputate when necessary, and try to survive the consequences of their own bad decisions.</p>
-        <div class="meta">
-          <div><b>Genre</b><span>Co-op survival chaos</span></div>
-          <div><b>Players</b><span>Friends, streamers, party groups</span></div>
-          <div><b>Tone</b><span>Dark comedy horror</span></div>
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">First-person, co-op survival, comedy/horror</div>
+          <h1>Plague Crew</h1>
+          <p class="quote">“The plague is the easy part.”</p>
+          <p class="lead">A chaotic medieval co-op game where plague doctors diagnose diseases, craft questionable medicine, amputate limbs, and survive the consequences of their own bad decisions.</p>
+          <div class="stats"> <div class="stat"><strong>1–4</strong><span>Chaotic Co-op</span></div> <div class="stat"><strong>PEGI 12</strong><span>Comedy Horror</span></div> <div class="stat"><strong>€60k</strong><span>Early Access Goal</span></div> <div class="stat"><strong>€200k</strong><span>Full Release Scope</span></div> </div>
+        </div>
+        <div class="hero-card"><img src="PlagueDoctor/image5.png" alt="Plague Crew logo" /></div>
+      </div>
+    </section>
+
+    <section id="game">
+      <div class="section-head">
+        <div><span class="tag">The Game</span><h2>Co-op chaos with consequences</h2></div>
+        <p>Players travel between infected villages before dawn, helping villagers, gathering resources, crafting medicine, managing panic, and trying not to make everything worse.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card"><h3>Chaotic Cooperation</h3><p>Dynamic co-op gameplay creates funny, stressful, emergent situations.</p></div>
+        <div class="card"><h3>Dark Humor</h3><p>A mix of creepy medieval horror and absurd comedy.</p></div>
+        <div class="card"><h3>Consequences</h3><p>Mistakes have visible effects on villagers, outbreaks, monsters, and the world.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="grid-2">
+        <div class="image-card"><img src="PlagueDoctor/image4.png" alt="Village concept art" /></div>
+        <div class="card">
+          <span class="tag">World</span>
+          <h2>Infected villages as chaotic playgrounds</h2>
+          <p>Each village is a unique playground where plague doctors cure or aid as many residents as possible before dawn. Players rummage through bushes, tread mud, chase rats, and search every corner for items that might help or accidentally cause more trouble.</p>
         </div>
       </div>
-      <div class="hero-card"><img src="PlagueDoctor/image5.png" alt="Plague Crew key art"></div>
-    </div>
-  </header>
+    </section>
 
-  <main>
-    <section><div class="wrap split">
-      <div><p class="quote">A village is sick. Your team has one night to help. <em>Every cure can become a catastrophe.</em></p></div>
-      <div class="card"><h3>The fantasy</h3><p>Players are summoned by a strange witch to rescue infected villages before dawn. They investigate symptoms, scavenge ingredients, use a shared cauldron, perform risky treatments, hide from consequences, and drag away the evidence when everything goes wrong.</p></div>
-    </div></section>
-
-    <section id="game"><div class="wrap">
-      <div class="section-head"><div class="num">01 · THE GAME</div><div><h2>Chaotic cooperation with visible consequences.</h2><p>The design is built around funny failure, stressful teamwork, and stories players want to retell.</p></div></div>
-      <div class="grid">
-        <div class="card"><h3>Chaotic Cooperation</h3><p>Players split up, shout discoveries, carry heavy objects together, miscommunicate recipes, and accidentally make everything worse.</p></div>
-        <div class="card"><h3>Dark Humor</h3><p>Creepy medieval plague fantasy meets absurd, physical comedy: tiny doctors, questionable medicine, corpse wagons, and witch-approved “solutions.”</p></div>
-        <div class="card"><h3>Consequences</h3><p>Wrong priorities spread sickness. Bad crafting poisons villagers. Unmanaged corpses can trigger zombies, monsters, panic, and reputation loss.</p></div>
+    <section>
+      <div class="section-head"><div><span class="tag">Characters</span><h2>Tiny doctors. Big disasters.</h2></div></div>
+      <div class="grid-2">
+        <div class="image-card"><img src="PlagueDoctor/image1.png" alt="Player character concept art" /></div>
+        <div class="image-card"><img src="PlagueDoctor/image6.png" alt="Sick villagers concept art" /></div>
       </div>
-    </div></section>
-
-    <section><div class="wrap">
-      <div class="section-head"><div class="num">02 · WORLD</div><div><h2>Each village is a chaotic playground.</h2><p>Players rummage through bushes, mud, graveyards, forests, and homes looking for the one ingredient that might save everyone — or ruin everything.</p></div></div>
-      <img src="PlagueDoctor/image8.png" alt="Village concept art">
-    </div></section>
-
-    <section><div class="wrap grid two">
-      <div class="card"><img src="PlagueDoctor/image2.png" alt="Player character concept"><h3>The Plague Doctors</h3><p>Tiny, frantic, expressive characters with quirky animations. Their small size turns the world into a problem-solving playground: climb, drag, hide, stack, carry, and improvise.</p></div>
-      <div class="card"><img src="PlagueDoctor/image6.png" alt="Villager concept"><h3>The Villagers</h3><p>Sick villagers show symptoms through appearance and behavior. Players must observe, diagnose, prioritize, and treat them before sickness spreads or panic takes over.</p></div>
-    </div></section>
-
-    <section id="loop"><div class="wrap">
-      <div class="section-head"><div class="num">03 · CORE LOOP</div><div><h2>Simple to understand. Hard to survive.</h2><p>The loop creates a clean pitch: arrive, investigate, gather, craft, treat, contain chaos, upgrade, repeat.</p></div></div>
-      <div class="flow">
-        <div class="step"><div><b>Arrive at an infected village</b><span>Choose a mission from the Hub and enter a new chaotic sandbox.</span></div></div>
-        <div class="step"><div><b>Investigate symptoms</b><span>Read villager behavior, surroundings, and disease clues.</span></div></div>
-        <div class="step"><div><b>Gather resources</b><span>Search forests, swamps, graveyards, houses, and dangerous areas.</span></div></div>
-        <div class="step"><div><b>Craft medicine</b><span>Combine ingredients in a shared cauldron. Correct recipes save lives; mistakes create new problems.</span></div></div>
-        <div class="step"><div><b>Treat, quarantine, operate, or improvise</b><span>Every treatment path has risk, reward, and comedy potential.</span></div></div>
-        <div class="step"><div><b>Manage panic, corpses, monsters, and reputation</b><span>If the team loses control, the village becomes the threat.</span></div></div>
-        <div class="step"><div><b>Return to the Hub</b><span>Upgrade tools, sell questionable remains, prepare for the next village.</span></div></div>
+      <div class="grid-2" style="margin-top:22px;">
+        <div class="card"><h3>The plague doctor</h3><p>The player character is a tiny plague doctor summoned by a helpful witch. Their existence is to frantically run around villages, trying to help everyone, moving with quirky and chaotic animations. But… those tiny legs can only do so much. Sometimes the things they need are just out of reach and that’s when creativity becomes essential. </p></div>
+        <div class="card"><h3>Sick villagers</h3><p>The sick villagers will display various symptoms through both their appearance and behavior. It is up to the players to figure out what they need and how to get it. But prioritise wrong, and some sicknesses may spread: leaving you with more sick villagers than when you arrived. The witch will not be happy with you then.</p></div>
       </div>
-    </div></section>
+    </section>
 
-    <section><div class="wrap">
-      <div class="section-head"><div class="num">04 · FEATURES</div><div><h2>Systems that create memorable co-op stories.</h2><p>The fun comes from the overlap: diagnosis, crafting, physics, panic, combat, stealth, and player error.</p></div></div>
-      <ul class="feature-list">
-        <li><b>Investigation:</b> examine symptoms and identify disease before it spreads.</li>
-        <li><b>Resource gathering:</b> limited herbs and rare ingredients push players to split up and take risks.</li>
-        <li><b>Shared crafting:</b> a team cauldron turns communication into comedy and danger.</li>
-        <li><b>Combat:</b> clumsy last-resort fights against infected creatures, villagers, and supernatural threats.</li>
-        <li><b>Surgery:</b> drastic medieval treatments can prevent spread — or become useful materials.</li>
-        <li><b>Dragging:</b> bodies and heavy objects require teamwork, tools, or questionable corpse-wagons.</li>
-        <li><b>Events:</b> Rat King, infestations, zombie outbreaks, failed experiments, and Frankenstein-like disasters.</li>
-        <li><b>Stealth:</b> hide in barrels, hay, tall grass, or behind a distracted friend.</li>
-        <li><b>The Hub:</b> a Baba Yaga-inspired walking hut for upgrades, quests, merchants, and unsettling discoveries.</li>
-      </ul>
-    </div></section>
-
-    <section><div class="wrap">
-      <div class="section-head"><div class="num">05 · VISUAL DIRECTION</div><div><h2>Readable, modular, creepy-cute medieval chaos.</h2><p>Modular buildings support fast village variation while keeping a handcrafted, toy-like dark fantasy look.</p></div></div>
-      <div class="grid">
-        <img src="PlagueDoctor/image1.png" alt="Building concept 1">
-        <img src="PlagueDoctor/image3.png" alt="Building concept 2">
-        <img src="PlagueDoctor/image7.png" alt="Building concept 3">
+    <section>
+      <div class="section-head">
+        <div><span class="tag">Game Loop</span><h2>A repeating cycle of treatment, panic, and travel</h2></div>
       </div>
-    </div></section>
-
-    <section><div class="wrap">
-      <div class="section-head"><div class="num">06 · AUDIENCE</div><div><h2>For players who love social chaos.</h2><p>Fans of Lethal Company, R.E.P.O, Content Warning, Phasmophobia, Overcooked, and dark comedy co-op games.</p></div></div>
-      <div class="grid two">
-        <div class="card"><h3>Why they play</h3><p>To laugh with friends, panic under pressure, experiment with systems, and create ridiculous “remember when…” stories.</p></div>
-        <div class="card"><h3>Why it streams well</h3><p>Unpredictable events, proximity voice, shared consequences, slapstick failure, horror tension, and readable goals make it strong for clips and group content.</p></div>
+      <div class="grid-2">
+        <div class="image-card"><img src="PlagueDoctor/image3.png" alt="Plague Crew game loop diagram" /></div>
+        <div class="loop">
+            <div class="loop-item">Accept a mission from the wandering Hut and travel toward frightened villagers, strange symptoms, and terrible decisions.</span></div>
+            <div class="loop-item">Investigate symptoms and diagnose illnesses, read villager behavior, surroundings, and disease clues.</div>
+            <div class="loop-item">Gather herbs and resources search in forests, swamps, graveyards, houses, and dangerous areas.</div>
+            <div class="loop-item">Craft medicine and treatments, combine ingredients in a shared cauldron. Correct recipes save lives; mistakes create new problems.</div>
+            <div class="loop-item">Every treatment has risk, reward, and comedy potential. A leg looks infected? CHOP it off! Swoosh! Problem solved… probably.</div>
+            <div class="loop-item">Manage panic, deaths, and reputation if the team loses control, the village becomes the threat.</div>
+            <div class="loop-item">Earn rewards, sell questionable remains, upgrade tools and prepare for the next village.</div>
+            <div class="loop-item">Leave the village behind and pretend the screaming must mean they’re happy the good work!</div>
+        </div>
       </div>
-    </div></section>
+    </section>
 
-    <section id="production"><div class="wrap">
-      <div class="section-head"><div class="num">07 · PRODUCTION</div><div><h2>Prototype-first roadmap toward a polished release candidate.</h2><p>The current tech demo already tests Photon Fusion networking, Photon Voice proximity chat, interaction, inventory, crafting, combat, and sync.</p></div></div>
+    <section>
+        <div class="section-head"><div><span class="tag">Features</span><h2>Systems built for emergent stories</h2></div></div>
+        <div class="feature-list">
+            <div class="feature-card"><b>Investigation</b><p>Examine symptoms, surroundings, and disease patterns before disaster spreads.</p><br /><div class="image-card"><img src="PlagueDoctor/image8.png" alt="Player character concept art" /></div></div>
+            <div class="feature-card"><b>Resource Gathering / Crafting </b><p>Gather resources to up in a shared cauldron. Good recipes save lives; bad recipes create chaos.</p><br /><div class="image-card"><img src="PlagueDoctor/image7.png" alt="Player character concept art" /></div></div>
+            <div class="feature-card"><b>Surgery & Treatments</b><p>Use medicine, surgery, quarantine, and extreme methods to solve urgent situations.</p></div>
+            <div class="feature-card"><b>Dragging & Disposal</b><p>Move heavy bodies alone or together, burn them, sell them, or upgrade corpse-wagons.</p></div>
+            <div class="feature-card"><b>Dynamic Events</b><p>Rat King, infestations, zombies, failed experiments, and escalating village disasters.</p></div>
+            <div class="feature-card"><b>Stealth</b><p>Hide in barrels, hay, tall grass, or behind a distracted friend.</p></div>
+            <div class="feature-card"><b>The Hub</b><p>A Baba Yaga-inspired wandering hut that acts as home, workshop, quest board, and unsettling safe haven.</p></div>
+        </div>
+    </section>
+
+    <section id="market">
+      <div class="section-head">
+        <div><span class="tag">Market</span><h2>Built for social-chaos multiplayer</h2></div>
+        <p>The deck positions Plague Crew beside recent co-op games driven by communication, panic, replayability, and creator-friendly moments.</p>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Commercial Positioning</h3>
+          <ul>
+            <li>Investigation and diagnosis</li>
+            <li>Resource gathering and crafting</li>
+            <li>Emergent co-op chaos</li>
+            <li>Dark humor and horror-comedy</li>
+            <li>Consequence-driven village systems</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Pricing Strategy</h3>
+          <p>Lower pricing supports friend-group impulse purchases: “A fun weekend with friends for the price of a bag of chips and a coke.”</p>
+        </div>
+      </div>
+      <div class="table-card" style="margin-top:24px;">
+        <table>
+          <thead><tr><th>Comparable Game</th><th>Estimated Owners</th><th>Price</th><th>Estimated Revenue</th></tr></thead>
+          <tbody>
+            <tr><td>We Gotta Go</td><td>30,000</td><td>€9</td><td>€270,000</td></tr>
+            <tr><td>Roadside Research</td><td>500,000</td><td>€9</td><td>€4.5M</td></tr>
+            <tr><td>RV There Yet?</td><td>6M</td><td>€8</td><td>€48M</td></tr>
+            <tr><td>Lethal Company</td><td>17M</td><td>€6</td><td>€102M</td></tr>
+            <tr><td>R.E.P.O.</td><td>18M</td><td>€10</td><td>€180M</td></tr>
+            <tr><td>PEAK</td><td>17M</td><td>€5</td><td>€85M</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="grid-2">
+        <div class="card">
+          <span class="tag">Revenue Potential</span>
+          <h2>Scalable upside in a controlled scope</h2>
+          <p>With a projected production investment of approximately €200,000, Plague Crew targets a 2–3x return in the expected scenario while using stylized visuals and modular production to reduce risk.</p>
+        </div>
+        <div class="table-card">
+          <table>
+            <thead><tr><th>Scenario</th><th>Copies Sold</th><th>Gross Revenue</th></tr></thead>
+            <tbody>
+              <tr><td>Conservative</td><td>20,000</td><td>€140k–€250k</td></tr>
+              <tr><td>Expected</td><td>50,000–75,000</td><td>€350k–€900k</td></tr>
+              <tr><td>High Success</td><td>150,000+</td><td>€1.5M+</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="grid-2">
+        <div class="card"><span class="tag">PEGI 12 Target</span><h2>Spooky, not graphic</h2><p>The game uses stylized characters, exaggerated comedy, distant camera perspectives, and non-realistic effects. Surgery, plague, monsters, and disasters are presented as cartoon-like horror-comedy rather than realistic gore or prolonged suffering.</p></div>
+        <div class="card"><span class="tag">Audience</span><h2>Friend groups, streamers, and co-op chaos fans</h2><p>Designed for players who enjoy communication, improvisation, and emergent multiplayer moments. Comparable audience references include Lethal Company, R.E.P.O., Content Warning, Phasmophobia, and Overcooked.</p></div>
+      </div>
+    </section>
+
+    <section id="production">
+      <div class="section-head"><div><span class="tag">Production</span><h2>Current state and release paths</h2></div></div>
+      <div class="grid-3">
+        <div class="card"><h3>Current State — May 2026</h3><p>Core systems and multiplayer foundation are already functional.</p></div>
+        <div class="card"><h3>Current Features</h3><ul><li>Photon Fusion networking</li><li>Proximity voice chat</li><li>Interaction system</li><li>Inventory & crafting</li><li>Basic combat</li><li>Multiplayer synchronization</li></ul></div>
+        <div class="card"><h3>Current Focus</h3><ul><li>Art direction</li><li>Horror/comedy tone</li><li>Animation style</li><li>Gameplay feel</li><li>Co-op chaos & replayability</li></ul></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="grid-2">
+        <div class="card strategy"><h3>Strategy 1 — Self-Publishing / Early Access</h3><p><b>Target release:</b> October 31, 2026<br><b>Budget:</b> €60,000</p><p>Release an Early Access version focused on the core gameplay loop while building community hype, wishlists, and player feedback.</p></div>
+        <div class="card strategy alt"><h3>Strategy 2 — Publisher Partner / Full 1.0</h3><p><b>Target release:</b> May 31, 2027<br><b>Budget:</b> €200,000</p><p>With external funding, expand toward a full 1.0 release with more content, polish, progression, villages, enemies, events, and replayability systems.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><div><span class="tag">Timeline</span><h2>Milestones</h2></div></div>
       <div class="timeline">
-        <div class="card milestone"><div class="date">May 12, 2026</div><h3>Current State</h3><p>Core tech tested, networking foundation in place, visual direction exploration started.</p></div>
-        <div class="card milestone"><div class="date">May 31, 2026</div><h3>Milestone 1</h3><p>Playable demo: Hub draft, small village, resources, recipes, enemies, sicknesses, one event, base characters.</p></div>
-        <div class="card milestone"><div class="date">June 30, 2026</div><h3>Milestone 2</h3><p>Early access-ready build with moving Hub, more villages, content, enemies, sicknesses, events, outfits, variants.</p></div>
-        <div class="card milestone"><div class="date">Oct 30, 2026</div><h3>Milestone 4</h3><p>Stability, polish, fun validation, content enhancement, and Gold Master preparation.</p></div>
+        <div class="mile"><div class="date">Jun 30, 2026</div><div><h3>Vertical Slice</h3><p class="muted">First playable showcase, core loop, initial village and hub, first enemies, illnesses, crafting, Discord/social presence, and private playtests.</p></div></div>
+        <div class="mile"><div class="date">Jul 31, 2026</div><div><h3>Steam Presence</h3><p class="muted">Steam page, public trailer, wishlist campaign, creator outreach, community playtests, additional villages and events.</p></div></div>
+        <div class="mile"><div class="date">Aug 30, 2026</div><div><h3>Content Expansion</h3><p class="muted">More replayability, random village generation, more events and monsters, expanded progression systems, larger public testing.</p></div></div>
+        <div class="mile"><div class="date">Oct 30, 2026</div><div><h3>Early Access Release</h3><p class="muted">Stability, optimization, balancing, onboarding polish, marketing push, and launch preparation.</p></div></div>
+        <div class="mile"><div class="date">Nov 30, 2026</div><div><h3>Production Expansion</h3><p class="muted">Pipeline improvements, larger systems, expanded village generation, new treatment mechanics, dynamic villager behavior, and multiplayer stability.</p></div></div>
+        <div class="mile"><div class="date">Jan 31, 2027</div><div><h3>Systems & Progression Expansion</h3><p class="muted">Hub upgrades, unlockable tools, expanded crafting, co-op synergy, more regions, environmental effects, and community-driven balancing.</p></div></div>
+        <div class="mile"><div class="date">Mar 31, 2027</div><div><h3>Content & Chaos Phase</h3><p class="muted">Advanced outbreaks, village panic, expanded monsters, rare events, co-op interactions, stronger AI, and streamer-focused chaos.</p></div></div>
+        <div class="mile"><div class="date">May 31, 2027</div><div><h3>Gold Master & 1.0 Prep</h3><p class="muted">Performance, accessibility, tutorials, final balancing, audio/visual polish, release trailer, press outreach, creator previews, and launch campaign.</p></div></div>
       </div>
-    </div></section>
+    </section>
 
-    <section><div class="wrap">
-      <div class="section-head"><div class="num">08 · RISKS</div><div><h2>The hard parts are known — and testable.</h2><p>Networked co-op, emergent events, and “finding the fun” are the main challenges, so the roadmap focuses on early playtesting and vertical-slice proof.</p></div></div>
-      <div class="grid">
-        <div class="card"><h3>Networking</h3><p>Photon Fusion and Photon Voice are already part of the tech demo, reducing unknowns around sync and proximity communication.</p></div>
-        <div class="card"><h3>Events</h3><p>Events must be surprising without feeling random. The goal is controlled chaos that players can understand and blame each other for.</p></div>
-        <div class="card"><h3>Fun discovery</h3><p>Small playtests will identify which interactions create the strongest co-op stories, then production can double down on those systems.</p></div>
+    <section>
+      <div class="grid-2">
+        <div class="card"><span class="tag">Long-Term Vision</span><h2>Unforgettable co-op stories</h2><p>Plague Crew is designed as a highly replayable social co-op experience where the most memorable moments come from player interaction, mistakes, panic, and unpredictable disasters.</p><ul><li>Share clips from it</li><li>Stream with friends</li><li>Tell stories about it</li><li>Return after each update</li></ul></div>
+        <div class="card"><span class="tag">Challenges</span><h2>Networked chaos and finding the fun</h2><p>Network games are challenging, but the team has experience and the tech demo shows promise using Photon Fusion and Photon Voice. The key design challenge is enhancing the co-op chaos so players remember the time they were chased by the Rat King or accidentally turned a village into a zombie horde.</p></div>
       </div>
-    </div></section>
+    </section>
 
-    <section id="team"><div class="wrap">
-      <div class="section-head"><div class="num">09 · TEAM</div><div><h2>Small team, full pipeline.</h2><p>Deleted Cookie AB was founded by Max and Tobias after The Station / Thunderful layoffs, bringing together former colleagues with experience across shipped games.</p></div></div>
-      <img src="PlagueDoctor/image4.png" alt="Team image">
-      <div class="team" style="margin-top:18px">
-        <div class="card"><h3>Max Nafar</h3><p>2D Artist</p><p class="small">SteamWorld Build, Garden Sprites, Tiny Space Pirate</p></div>
-        <div class="card"><h3>Tobias Kärrman</h3><p>Programmer</p><p class="small">Bloody Trapland 2, SteamWorld Build, Islanders: New Shores, Garden Sprites, Tiny Space Pirate</p></div>
-        <div class="card"><h3>Siri Ekstrand</h3><p>3D Artist</p><p class="small">Wavetale, SteamWorld Build, Islanders: New Shores</p></div>
-        <div class="card"><h3>Harald af Malmborg</h3><p>SFX / Music</p><p class="small">SteamWorld Heist 2, Lost in Random, Lost in Random: Eternal Die, Islanders: New Shores</p></div>
-      </div>
-    </div></section>
+    <section id="team">
+        <div class="section-head">
+            <div><span class="tag">Team</span><h2></h2></div><p></div>
+        <div class="image-card" style="margin-bottom:24px;"><img src="PlagueDoctor/image2.png" alt="Deleted Cookie logo" /><p><center>Created by previous The Station/Thunderful employees, with experience across <br /> SteamWorld Build, Islanders: New Shores, Bloody Trapland 2, Wavetale, Lost in Random, Garden Sprites, Colornundrum, and Tiny Space Pirate.</p></center></div>
+                <div class="team">
+                    <div class="member"><b>Max Nafar</b><small>2D Artist</small><p>SteamWorld Build, Garden Sprites, Tiny Space Pirate</p></div>
+                    <div class="member"><b>Tobias Kärrman</b><small>Programmer</small><p>Bloody Trapland 2, SteamWorld Build, Islanders: New Shores, Garden Sprites, Tiny Space Pirate</p></div>
+                    <div class="member"><b>Siri Ekstrand</b><small>3D Artist</small><p>Wavetale, SteamWorld Build, Islanders: New Shores</p></div>
+                    <div class="member"><b>Harald Af Malmborg</b><small>SFX / Music</small><p>SteamWorld Heist 2, Lost in Random, Lost in Random: Eternal Die, Islanders: New Shores</p></div>
+                </div>
+    </section>
+
+    <div class="footer">
+      <strong>Plague Crew</strong><br />A chaotic co-op survival comedy/horror pitch by Deleted Cookie AB.
+    </div>
   </main>
-
-  <footer><div class="wrap"><strong>Plague Crew</strong><br>Chaotic co-op survival comedy horror · Deleted Cookie AB</div></footer>
 </body>
 </html>
