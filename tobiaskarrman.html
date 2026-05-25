@@ -2,104 +2,395 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Tobias Kärrman</title>
+  <title>Tobias Kärrman | Deleted Cookie</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
+  <meta name="description" content="Meet Tobias Kärrman, co-founder of Deleted Cookie. Book a meeting to discuss games, publishing, investment, collaborations, and studio projects." />
+
   <style>
+    :root {
+      --bg: #0b0b0d;
+      --bg-soft: #141417;
+      --card: rgba(255, 255, 255, 0.07);
+      --card-border: rgba(255, 255, 255, 0.12);
+      --text: #ffffff;
+      --muted: #b9b9c2;
+      --accent: #ffcf4a;
+      --accent-dark: #d89b14;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: system-ui, sans-serif;
-      background: #0e0e0e;
-      color: #fff;
-      text-align: center;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255, 207, 74, 0.16), transparent 32rem),
+        radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.08), transparent 30rem),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
 
-    header {
-      padding: 40px 20px 20px;
+    a {
+      color: inherit;
     }
 
-    header img {
-      max-width: 700px;
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 48px 0;
     }
 
-    section {
-      padding: 5px 0px;
-      max-width: 900px;
-      margin: auto;
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 36px;
+      align-items: center;
+      min-height: 76vh;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      padding: 8px 14px;
+      border: 1px solid var(--card-border);
+      border-radius: 999px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.05);
+      font-size: 14px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 18px var(--accent);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(46px, 8vw, 92px);
+      line-height: 0.92;
+      letter-spacing: -0.06em;
+    }
+
+    h1 span {
+      color: var(--accent);
+    }
+
+    .intro {
+      max-width: 680px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: clamp(18px, 2vw, 21px);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button.primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: #14100a;
+    }
+
+    .button.secondary {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: var(--card-border);
+      color: var(--text);
+    }
+
+    .portrait-card {
+      position: relative;
+      padding: 14px;
+      border: 1px solid var(--card-border);
+      border-radius: 30px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .portrait-card::before {
+      content: "";
+      position: absolute;
+      inset: -40% -30% auto auto;
+      width: 260px;
+      height: 260px;
+      background: rgba(255, 207, 74, 0.24);
+      filter: blur(60px);
+      pointer-events: none;
+    }
+
+    .portrait-card img {
+      position: relative;
+      display: block;
+      width: 100%;
+      border-radius: 22px;
+      object-fit: cover;
+    }
+
+    .info-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .mini-card,
+    .content-card {
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      background: var(--card);
+      backdrop-filter: blur(16px);
+    }
+
+    .mini-card {
+      padding: 18px;
+    }
+
+    .mini-card strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--accent);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .mini-card span {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 24px;
+      margin-top: 28px;
+      align-items: start;
+    }
+
+    .content-card {
+      padding: clamp(24px, 4vw, 36px);
     }
 
     h2 {
-      margin-bottom: 20px;
-      font-size: 28px;
+      margin: 0 0 14px;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
     }
 
-    .games {
+    p {
+      margin: 0 0 16px;
+      color: var(--muted);
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    .list {
       display: grid;
-      gap: 60px;
+      gap: 12px;
+      margin-top: 18px;
     }
 
-    .game-card {
-      background: #181818;
-      padding: 30px;
-      border-radius: 12px;
+    .list-item {
+      display: flex;
+      gap: 12px;
+      color: var(--muted);
     }
 
-    .game-card img.promo {
-      width: 100%;
-      max-width: 600px;
-      border-radius: 12px;
-      margin-bottom: 20px;
+    .list-item::before {
+      content: "•";
+      color: var(--accent);
+      font-weight: 900;
     }
 
-    .platforms {
-      margin-top: 15px;
+    .meeting {
+      margin-top: 28px;
     }
 
-    .platforms a img {
-      height: 45px;
-      margin: 10px;
-      transition: transform 0.2s ease;
+    .meeting-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 18px;
     }
 
-    .platforms a img:hover {
-      transform: scale(1.1);
+    .meeting-header p {
+      max-width: 640px;
+    }
+
+    .help-text {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .help-text a {
+      color: var(--accent);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .organai-wrap {
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      background: #ffffff;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .organai-inline-widget {
+      min-width: 320px;
+      height: 700px;
     }
 
     footer {
-      padding: 40px;
-      opacity: 0.6;
+      padding: 42px 0 12px;
+      color: rgba(255, 255, 255, 0.54);
       font-size: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 860px) {
+      .hero,
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .info-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .meeting-header {
+        display: block;
+      }
     }
   </style>
 </head>
 
 <body>
-    <section id="about">
-        <h2>Tobias Kärrman</h2>
-        <p>
-Co-founder
+  <main class="page">
+    <section class="hero" id="about">
+      <div>
+        <p class="eyebrow"><span class="dot"></span> Co-founder of Deleted Cookie</p>
+        <h1>Tobias <span>Kärrman</span></h1>
+        <p class="intro">
+          Game developer, studio co-founder, and creative problem solver building playful games with heart, humor, and personality.
         </p>
+
+        <div class="actions">
+          <a class="button primary" href="#book">Book a meeting</a>
+          <a class="button secondary" href="maxnafar.html">Meet Max Nafar</a>
+        </div>
+      </div>
+
+      <div class="portrait-card">
+        <img src="tobiaskarrman.png" alt="Portrait of Tobias Kärrman" />
+      </div>
     </section>
 
-    <div class="platforms">
-        <a href="https://discord.gg/tKzv3DNc93" target="_blank">
-            <img src="Discord-Symbol-Blurple.svg" alt="Discord">
-        </a>
-    </div>
+    <section class="info-strip" aria-label="Quick information">
+      <div class="mini-card">
+        <strong>Role</strong>
+        <span>Co-founder / Game Developer</span>
+      </div>
+      <div class="mini-card">
+        <strong>Studio</strong>
+        <span>Deleted Cookie</span>
+      </div>
+      <div class="mini-card">
+        <strong>Focus</strong>
+        <span>Indie games, prototypes, pitching, and production</span>
+      </div>
+    </section>
 
-Book a meeting with Tobias Kärrman to discuss collaborations, publishing, or game development.
-<br><br>
-<!-- OrganAise inline widget begin -->
-<div class="organai-inline-widget"
-     data-url="https://booking.getorganaise.com/?id=IovD0QR1JSGlNgCJLDji&embed=1#/?id=IovD0QR1JSGlNgCJLDji"
-     style="min-width:320px;height:700px;"></div>
-<script async src="https://booking.getorganaise.com/embed/v1.js"></script>
-<!-- OrganAise inline widget end -->
+    <section class="content-grid">
+      <article class="content-card">
+        <h2>About me</h2>
+        <p>
+          Hi, I’m Tobias. I co-founded Deleted Cookie together with Max Nafar, where we create and develop indie games from early prototypes to released projects.
+        </p>
+        <p>
+          My work covers game design, development, production, pitching, and shaping ideas into playable experiences. I enjoy building games that feel charming, memorable, and a little unexpected.
+        </p>
+      </article>
 
-    <footer>
-        © 2026 Deleted Cookie <br>
-        An independent studio founded by Tobias Kärrman & Max Nafar
-    </footer>
+      <article class="content-card">
+        <h2>What I’m looking for</h2>
+        <p>
+          I’m always happy to meet publishers, investors, PR and marketing partners, platform holders, press, creators, and other developers.
+        </p>
+        <div class="list">
+          <div class="list-item">Discuss current and upcoming Deleted Cookie projects.</div>
+          <div class="list-item">Show prototypes, released games, and pitch material.</div>
+          <div class="list-item">Talk about publishing, funding, marketing, distribution, and long-term collaboration.</div>
+        </div>
+      </article>
+    </section>
 
+    <section class="meeting content-card" id="book">
+      <div class="meeting-header">
+        <div>
+          <h2>Book a meeting</h2>
+          <p>
+            Want to talk about games, publishing, investment, collaboration, or game development? Book a meeting with Tobias Kärrman through OrganAise.
+          </p>
+        </div>
+        <a class="button secondary" href="maxnafar.html">Max Nafar’s page</a>
+      </div>
+
+      <p class="help-text">
+        No available times, or the times do not work for you? Email <a href="mailto:tobias@deletedcookie.se">tobias@deletedcookie.se</a> or check <a href="maxnafar.html">Max Nafar’s meeting page</a>.
+      </p>
+
+      <div class="organai-wrap">
+        <!-- OrganAise inline widget begin -->
+        <div class="organai-inline-widget"
+             data-url="https://booking.getorganaise.com/?id=IovD0QR1JSGlNgCJLDji&embed=1#/?id=IovD0QR1JSGlNgCJLDji"></div>
+        <script async src="https://booking.getorganaise.com/embed/v1.js"></script>
+        <!-- OrganAise inline widget end -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Deleted Cookie<br />
+    An independent studio founded by Tobias Kärrman &amp; Max Nafar
+  </footer>
 </body>
 </html>
