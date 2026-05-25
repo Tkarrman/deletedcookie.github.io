@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plague Crew — Milestone 1 Vertical Slice</title>
+  <style>
+    :root {
+      --bg: #080908;
+      --panel: #11140f;
+      --panel-2: #171b13;
+      --text: #f1eadc;
+      --muted: #b7ad9c;
+      --accent: #a7c76b;
+      --accent-2: #d5ba73;
+      --danger: #b5654f;
+      --line: rgba(241,234,220,.12);
+      --shadow: 0 30px 80px rgba(0,0,0,.45);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(167,199,107,.16), transparent 34rem),
+        radial-gradient(circle at 85% 12%, rgba(181,101,79,.12), transparent 28rem),
+        linear-gradient(180deg, #080908 0%, #0d0f0c 55%, #070807 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 0 22px; }
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(8,9,8,.72);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 14px 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: center;
+    }
+    .brand { font-weight: 900; letter-spacing: .08em; text-transform: uppercase; font-size: 13px; }
+    .nav a { color: var(--muted); text-decoration: none; font-size: 13px; margin-left: 16px; }
+    .nav a:hover { color: var(--text); }
+
+    section { padding: 84px 0; border-bottom: 1px solid var(--line); }
+    h1, h2, h3 { line-height: 1.05; margin: 0; }
+    h1 { font-size: clamp(48px, 8vw, 92px); letter-spacing: -0.07em; }
+    h2 { font-size: clamp(32px, 5vw, 52px); letter-spacing: -0.05em; margin-bottom: 18px; }
+    h3 { font-size: 24px; letter-spacing: -0.03em; margin-bottom: 10px; }
+
+    .lead { font-size: clamp(18px, 2.2vw, 26px); color: #fff7e8; max-width: 850px; line-height: 1.25; }
+    .muted { color: var(--muted); }
+    .tag {
+      display: inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      border:1px solid var(--line);
+      color: var(--accent);
+      background: rgba(167,199,107,.08);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing:.08em;
+      margin-bottom: 16px;
+    }
+    .date { color: var(--accent-2); font-weight: 900; font-size: 18px; }
+    .hero-card, .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.025));
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .card { padding: 24px; }
+    .card p { margin: 0; color: var(--muted); }
+    .card ul { margin: 12px 0 0; padding-left: 18px; color: var(--muted); }
+
+    .hero-panel {
+      padding: 34px;
+      margin-top: 32px;
+      border-left: 4px solid var(--accent);
+    }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+    .feature-card {
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 24px;
+      padding: 24px;
+      transition: .25s ease;
+    }
+    .feature-card b { color: var(--text); font-size: 18px; }
+    .feature-card p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .feature-card ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .footer {
+      padding: 60px 0 90px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    @media (max-width: 800px) {
+      .meta-grid { grid-template-columns: 1fr; }
+      section { padding: 58px 0; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand">Deleted Cookie · Plague Crew</div>
+      <div>
+        <a href="PlagueDoctor.html">Back to Pitch Deck</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <section>
+      <span class="tag">Production Milestone</span>
+      <h1>Milestone 1 — Vertical Slice</h1>
+      <p class="lead">
+        A focused first playable milestone designed to prove the core loop, tone,
+        multiplayer foundation, and production direction of Plague Crew.
+      </p>
+
+      <div class="card hero-panel">
+        <div class="meta-grid">
+          <div>
+            <div class="date">Jun 30, 2026</div>
+            <span class="tag" style="margin-top:14px;">Milestone 1</span>
+          </div>
+
+          <div>
+            <h2>Vertical Slice</h2>
+            <p class="muted">
+              A polished first playable showcase that demonstrates the core gameplay loop,
+              co-op chaos, village treatment systems, crafting, and the overall horror-comedy tone.
+            </p>
+
+            <div class="feature-grid">
+              <div class="feature-card">
+                <b>Goal</b>
+                <p>Deliver a strong playable build that proves the game concept, player feel, and core production direction.</p>
+              </div>
+
+              <div class="feature-card">
+                <b>Focus</b>
+                <p>Core systems, first village experience, co-op interaction, treatment gameplay, and early player feedback.</p>
+              </div>
+
+              <div class="feature-card">
+                <b>Key Deliverables</b>
+                <ul>
+                  <li>Playable core loop</li>
+                  <li>Initial village and hub</li>
+                  <li>First illnesses and treatments</li>
+                  <li>Basic crafting and resources</li>
+                  <li>First enemies and village threats</li>
+                  <li>Private playtest build</li>
+                </ul>
+              </div>
+
+              <div class="feature-card">
+                <b>Community & Marketing</b>
+                <ul>
+                  <li>Discord / social presence</li>
+                  <li>Early gameplay capture</li>
+                  <li>Private playtests</li>
+                  <li>Feedback collection pipeline</li>
+                </ul>
+              </div>
+
+              <div class="feature-card">
+                <b>Validation</b>
+                <p>Players understand the loop, enjoy the movement and chaos, and the build is stable enough for repeated multiplayer tests.</p>
+              </div>
+
+              <div class="feature-card">
+                <b>Outcome</b>
+                <p>A clear showcase build for publishers, partners, creators, and early community testing.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      <strong>Plague Crew</strong><br />
+      Milestone breakdown for Deleted Cookie AB.
+    </div>
+  </main>
+</body>
+</html>

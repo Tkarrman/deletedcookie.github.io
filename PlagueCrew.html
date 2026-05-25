@@ -122,8 +122,81 @@
     tr:last-child td { border-bottom: 0; }
 
     .timeline { display: grid; gap: 16px; }
+
+    .milestone-row {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 32px;
+      align-items: start;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.035);
+      transition: .2s ease;
+    }
+
+    .milestone-row:hover {
+      border-color: rgba(167,199,107,.25);
+      transform: translateY(-2px);
+    }
+
+    .mile-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .mile-content h3 {
+      margin-bottom: 12px;
+    }
+
+    .mile-content p {
+      max-width: 720px;
+    }
+
+    @media (max-width: 760px) {
+      .milestone-row {
+        grid-template-columns: 1fr;
+      }
+    }
     .mile { display: grid; grid-template-columns: 180px 1fr; gap: 20px; padding: 22px; border: 1px solid var(--line); border-radius: 22px; background: rgba(255,255,255,.035); }
     .date { color: var(--accent-2); font-weight: 900; }
+
+    .path-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .path-tag {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      padding: 6px 10px;
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+    }
+    .path-tag.self {
+      color: var(--accent-2);
+      background: rgba(213,186,115,.10);
+      border-color: rgba(213,186,115,.28);
+    }
+    .path-tag.publisher {
+      color: var(--accent);
+      background: rgba(167,199,107,.10);
+      border-color: rgba(167,199,107,.28);
+    }
+    .path-tag.decision {
+      color: var(--danger);
+      background: rgba(181,101,79,.10);
+      border-color: rgba(181,101,79,.30);
+    }
     .mile ul { margin: 8px 0 0; padding-left: 18px; color: var(--muted); }
     .strategy { border-left: 4px solid var(--accent); }
     .strategy.alt { border-left-color: var(--danger); }
@@ -343,16 +416,143 @@
     </section>
 
     <section>
-      <div class="section-head"><div><span class="tag">Timeline</span><h2>Milestones</h2></div></div>
+      <div class="section-head">
+        <div><span class="tag">Timeline</span><h2>Milestones</h2></div>
+        <p>Clean overview of the production roadmap. The full milestone breakdown is available on a separate page.</p>
+      </div>
+
       <div class="timeline">
-        <div class="mile"><div class="date">Jun 30, 2026</div><div><h3>Vertical Slice</h3><p class="muted">First playable showcase, core loop, initial village and hub, first enemies, illnesses, crafting, Discord/social presence, and private playtests.</p></div></div>
-        <div class="mile"><div class="date">Jul 31, 2026</div><div><h3>Steam Presence</h3><p class="muted">Steam page, public trailer, wishlist campaign, creator outreach, community playtests, additional villages and events.</p></div></div>
-        <div class="mile"><div class="date">Aug 30, 2026</div><div><h3>Content Expansion</h3><p class="muted">More replayability, random village generation, more events and monsters, expanded progression systems, larger public testing.</p></div></div>
-        <div class="mile"><div class="date">Oct 30, 2026</div><div><h3>Early Access Release</h3><p class="muted">Stability, optimization, balancing, onboarding polish, marketing push, and launch preparation.</p></div></div>
-        <div class="mile"><div class="date">Nov 30, 2026</div><div><h3>Production Expansion</h3><p class="muted">Pipeline improvements, larger systems, expanded village generation, new treatment mechanics, dynamic villager behavior, and multiplayer stability.</p></div></div>
-        <div class="mile"><div class="date">Jan 31, 2027</div><div><h3>Systems & Progression Expansion</h3><p class="muted">Hub upgrades, unlockable tools, expanded crafting, co-op synergy, more regions, environmental effects, and community-driven balancing.</p></div></div>
-        <div class="mile"><div class="date">Mar 31, 2027</div><div><h3>Content & Chaos Phase</h3><p class="muted">Advanced outbreaks, village panic, expanded monsters, rare events, co-op interactions, stronger AI, and streamer-focused chaos.</p></div></div>
-        <div class="mile"><div class="date">May 31, 2027</div><div><h3>Gold Master & 1.0 Prep</h3><p class="muted">Performance, accessibility, tutorials, final balancing, audio/visual polish, release trailer, press outreach, creator previews, and launch campaign.</p></div></div>
+        <a href="PlagueCrew_Milestones.html#vertical-slice" class="mile milestone-row" style="text-decoration:none;">
+          <div class="mile-meta">
+            <div class="date">Jun 30, 2026</div>
+            <span class="tag">Milestone 1</span>
+            <div class="path-tags">
+              <span class="path-tag self">Self-Publishing</span>
+              <span class="path-tag publisher">Publisher Partner</span>
+            </div>
+          </div>
+
+          <div class="mile-content">
+            <h3>Vertical Slice</h3>
+            <p class="muted">First playable showcase proving the core gameplay loop, treatment systems, multiplayer chaos, and overall tone.</p>
+          </div>
+        </a>
+
+        <a href="PlagueCrew_Milestones.html#steam-presence" class="mile milestone-row" style="text-decoration:none;">
+          <div class="mile-meta">
+            <div class="date">Jul 31, 2026</div>
+            <span class="tag">Milestone 2</span>
+            <div class="path-tags">
+              <span class="path-tag self">Self-Publishing</span>
+              <span class="path-tag publisher">Publisher Partner</span>
+            </div>
+          </div>
+
+          <div class="mile-content">
+            <h3>Steam Presence</h3>
+            <p class="muted">Steam page, trailer, wishlist campaign, creator outreach, and community playtests.</p>
+          </div>
+        </a>
+
+        <a href="PlagueCrew_Milestones.html#content-expansion" class="mile milestone-row" style="text-decoration:none;">
+          <div class="mile-meta">
+            <div class="date">Aug 30, 2026</div>
+            <span class="tag">Milestone 3</span>
+            <div class="path-tags">
+              <span class="path-tag self">Self-Publishing</span>
+              <span class="path-tag publisher">Publisher Partner</span>
+            </div>
+          </div>
+
+          <div class="mile-content">
+            <h3>Content Expansion</h3>
+            <p class="muted">Replayability, village generation, events, monsters, progression, and larger testing.</p>
+          </div>
+        </a>
+
+        <a href="PlagueCrew_Milestones.html#early-access-release" class="mile milestone-row" style="text-decoration:none;">
+          <div class="mile-meta">
+            <div class="date">Oct 30, 2026</div>
+            <span class="tag">Milestone 4</span>
+            <div class="path-tags">
+              <span class="path-tag self">Self-Publishing</span>
+              <span class="path-tag decision">Publisher Decision</span>
+            </div>
+          </div>
+
+          <div class="mile-content">
+            <h3>Early Access Release / Publisher Decision</h3>
+            <p class="muted">Self-publishing release point. With a publisher partner, this becomes the shift into the larger 1.0 production roadmap.</p>
+          </div>
+        </a>
+
+        <a href="PlagueCrew_Milestones.html#production-expansion" class="mile milestone-row" style="text-decoration:none;">
+          <div class="mile-meta">
+            <div class="date">Nov 30, 2026</div>
+            <span class="tag">Milestone 5</span>
+            <div class="path-tags">
+              <span class="path-tag publisher">Publisher Partner</span>
+            </div>
+          </div>
+
+          <div class="mile-content">
+            <h3>Production Expansion</h3>
+            <p class="muted">Pipeline improvements, larger systems, village generation, treatments, and stability.</p>
+          </div>
+        </a>
+
+        <a href="PlagueCrew_Milestones.html#systems-progression-expansion" class="mile milestone-row" style="text-decoration:none;">
+          <div class="mile-meta">
+            <div class="date">Jan 31, 2027</div>
+            <span class="tag">Milestone 6</span>
+            <div class="path-tags">
+              <span class="path-tag publisher">Publisher Partner</span>
+            </div>
+          </div>
+
+          <div class="mile-content">
+            <h3>Systems & Progression Expansion</h3>
+            <p class="muted">Hub upgrades, tools, crafting, co-op synergy, regions, and environmental effects.</p>
+          </div>
+        </a>
+
+        <a href="PlagueCrew_Milestones.html#content-chaos-phase" class="mile milestone-row" style="text-decoration:none;">
+          <div class="mile-meta">
+            <div class="date">Mar 31, 2027</div>
+            <span class="tag">Milestone 7</span>
+            <div class="path-tags">
+              <span class="path-tag publisher">Publisher Partner</span>
+            </div>
+          </div>
+
+          <div class="mile-content">
+            <h3>Content & Chaos Phase</h3>
+            <p class="muted">Advanced outbreaks, village panic, monsters, rare events, AI, and streamer chaos.</p>
+          </div>
+        </a>
+
+        <a href="PlagueCrew_Milestones.html#gold-master-1-0-prep" class="mile milestone-row" style="text-decoration:none;">
+          <div class="mile-meta">
+            <div class="date">May 31, 2027</div>
+            <span class="tag">Milestone 8</span>
+            <div class="path-tags">
+              <span class="path-tag publisher">Publisher Partner</span>
+            </div>
+          </div>
+
+          <div class="mile-content">
+            <h3>Gold Master & 1.0 Prep</h3>
+            <p class="muted">Performance, accessibility, tutorials, final balancing, polish, press, and launch campaign.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="card" style="margin-top:24px; text-align:center;">
+        <h3>Full Production Breakdown</h3>
+        <p class="muted">Open the separate milestone page to view goals, focus, deliverables, validation, and outcomes for every milestone.</p>
+        <p style="margin-top:18px;">
+          <a href="PlagueCrew_Milestones.html" class="tag" style="text-decoration:none;">View Full Milestone Plan</a>
+        </p>
       </div>
     </section>
 

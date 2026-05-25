@@ -88,6 +88,18 @@
     .feature-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:20px 0 0;padding:0;list-style:none}
     .feature-list li{border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.28);border-radius:16px;padding:12px 14px;color:#eceee7;font-weight:800;font-size:.92rem}
     .footer{border-top:1px solid rgba(255,255,255,.1);color:var(--muted);padding:34px 0 50px;text-align:center}
+
+
+    .clickable-image{cursor:zoom-in;transition:transform .2s ease, border-color .2s ease, filter .2s ease}
+    .clickable-image:hover{transform:translateY(-2px) scale(1.015);border-color:rgba(255,255,255,.45);filter:brightness(1.08)}
+    .image-modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:28px;background:rgba(0,0,0,.88);backdrop-filter:blur(12px)}
+    .image-modal.is-open{display:flex}
+    .image-modal-card{position:relative;width:min(1120px,100%);max-height:90vh;border-radius:26px;background:rgba(18,18,18,.96);border:1px solid rgba(255,255,255,.16);box-shadow:0 30px 110px rgba(0,0,0,.8);padding:16px}
+    .image-modal-card img{width:100%;max-height:78vh;object-fit:contain;border-radius:18px;background:#050505}
+    .image-modal-caption{margin:12px 6px 0;color:var(--muted);font-size:.95rem}
+    .image-modal-close{position:absolute;top:12px;right:12px;width:44px;height:44px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(0,0,0,.68);color:#fff;font-size:28px;line-height:1;cursor:pointer;display:grid;place-items:center}
+    .image-modal-close:hover{background:#fff;color:#000}
+    body.modal-open{overflow:hidden}
     @media (max-width:900px){.hero,.game-inner,.featured-inner{grid-template-columns:1fr}.hero{padding-top:54px}.nav-links{display:none}.game-inner{min-height:auto}.content{padding:26px}.shots{grid-template-columns:repeat(2,1fr)}.featured-copy{padding:4px}.feature-list{grid-template-columns:1fr}}
     @media (max-width:560px){.page,.nav-inner{width:min(100% - 24px,1180px)}.stats{grid-template-columns:1fr}.shots,.shots.two{grid-template-columns:1fr 1fr}.content{padding:22px}.media{padding:12px}h1{font-size:3.35rem}}
   </style>
@@ -131,9 +143,9 @@
             <div class="featured-media">
                 <div class="main-shot"><img src="PlagueDoctor/image5.png" alt="Plague Crew key art"></div>
                 <div class="featured-shots">
-                    <img src="PlagueDoctor/image4.png" alt="Plague Crew village concept">
-                    <img src="PlagueDoctor/image1.png" alt="Plague Crew character concept">
-                    <img src="PlagueDoctor/image7.png" alt="Plague Crew villager concept">
+                    <img class="clickable-image" src="PlagueDoctor/image4.png" alt="Plague Crew village concept">
+                    <img class="clickable-image" src="PlagueDoctor/image1.png" alt="Plague Crew character concept">
+                    <img class="clickable-image" src="PlagueDoctor/image7.png" alt="Plague Crew villager concept">
                 </div>
             </div>
             <div class="featured-copy">
@@ -153,7 +165,7 @@
             </div>
         </div>
         <div style="margin-top:20px;">
-            <a href="PlagueDoctor.html"
+            <a href="PlagueCrew.html"
                style="display:inline-block;padding:14px 24px;background:#98c76a;
        color:#000;text-decoration:none;font-weight:700;border-radius:12px;
        font-family:Arial,sans-serif;">
@@ -169,8 +181,8 @@
           <div class="media">
             <div class="hero-img"><img src="images/image16.png" alt="Garden Sprites key art"></div>
             <div class="shots portrait two">
-              <img src="images/image9.png" alt="Garden Sprites screenshot one">
-              <img src="images/image17.png" alt="Garden Sprites screenshot two">
+              <img class="clickable-image" src="images/image9.png" alt="Garden Sprites screenshot one">
+              <img class="clickable-image" src="images/image17.png" alt="Garden Sprites screenshot two">
             </div>
           </div>
           <div class="content">
@@ -192,9 +204,9 @@
           <div class="media">
             <div class="hero-img"><img src="images/image21.png" alt="Lasse’s Cargo Shuffler key art"></div>
             <div class="shots">
-              <img src="images/image13.png" alt="Cargo Shuffler screenshot one">
-              <img src="images/image4.png" alt="Cargo Shuffler screenshot two">
-              <img src="images/image8.png" alt="Cargo Shuffler screenshot three">
+              <img class="clickable-image" src="images/image13.png" alt="Cargo Shuffler screenshot one">
+              <img class="clickable-image" src="images/image4.png" alt="Cargo Shuffler screenshot two">
+              <img class="clickable-image" src="images/image8.png" alt="Cargo Shuffler screenshot three">
             </div>
           </div>
           <div class="content">
@@ -211,9 +223,9 @@
           <div class="media">
             <div class="hero-img"><img src="images/image7.png" alt="Tiny Space Racer key art"></div>
             <div class="shots">
-              <img src="images/image12.png" alt="Tiny Space Racer screenshot one">
-              <img src="images/image10.png" alt="Tiny Space Racer screenshot two">
-              <img src="images/image15.png" alt="Tiny Space Racer screenshot three">
+              <img class="clickable-image" src="images/image12.png" alt="Tiny Space Racer screenshot one">
+              <img class="clickable-image" src="images/image10.png" alt="Tiny Space Racer screenshot two">
+              <img class="clickable-image" src="images/image15.png" alt="Tiny Space Racer screenshot three">
             </div>
           </div>
           <div class="content">
@@ -230,8 +242,8 @@
           <div class="media">
             <div class="hero-img"><img src="images/image20.png" alt="Tiny Space Pirate key art"></div>
             <div class="shots two">
-              <img src="images/image1.png" alt="Tiny Space Pirate screenshot one">
-              <img src="images/image3.png" alt="Tiny Space Pirate screenshot two">
+              <img class="clickable-image" src="images/image1.png" alt="Tiny Space Pirate screenshot one">
+              <img class="clickable-image" src="images/image3.png" alt="Tiny Space Pirate screenshot two">
             </div>
           </div>
           <div class="content">
@@ -253,8 +265,8 @@
           <div class="media">
             <div class="hero-img"><img src="images/image11.png" alt="Pedro's Disco Journey key art"></div>
             <div class="shots portrait two">
-              <img src="images/image6.png" alt="Pedro's Disco Journey screenshot one">
-              <img src="images/image19.png" alt="Pedro's Disco Journey screenshot two">
+              <img class="clickable-image" src="images/image6.png" alt="Pedro's Disco Journey screenshot one">
+              <img class="clickable-image" src="images/image19.png" alt="Pedro's Disco Journey screenshot two">
             </div>
           </div>
           <div class="content">
@@ -271,9 +283,9 @@
           <div class="media">
             <div class="hero-img"><img src="images/image5.png" alt="Colornundrum key art"></div>
             <div class="shots portrait">
-              <img src="images/image18.png" alt="Colornundrum screenshot one">
-              <img src="images/image14.png" alt="Colornundrum screenshot two">
-              <img src="images/image2.png" alt="Colornundrum screenshot three">
+              <img class="clickable-image" src="images/image18.png" alt="Colornundrum screenshot one">
+              <img class="clickable-image" src="images/image14.png" alt="Colornundrum screenshot two">
+              <img class="clickable-image" src="images/image2.png" alt="Colornundrum screenshot three">
             </div>
           </div>
           <div class="content">
@@ -293,5 +305,61 @@
   <footer class="footer">
     <div class="page">Deleted Cookie · Studio Deck</div>
   </footer>
+
+
+  <div class="image-modal" id="imageModal" aria-hidden="true" role="dialog" aria-label="Large image preview">
+    <div class="image-modal-card" role="document">
+      <button class="image-modal-close" type="button" aria-label="Close image preview">&times;</button>
+      <img id="imageModalImg" src="" alt="">
+      <p class="image-modal-caption" id="imageModalCaption"></p>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('imageModalImg');
+    const modalCaption = document.getElementById('imageModalCaption');
+    const closeModalButton = modal.querySelector('.image-modal-close');
+
+    function openImageModal(image) {
+      modalImg.src = image.src;
+      modalImg.alt = image.alt || 'Large image preview';
+      modalCaption.textContent = image.alt || '';
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+      closeModalButton.focus();
+    }
+
+    function closeImageModal() {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
+      modalImg.src = '';
+      modalCaption.textContent = '';
+    }
+
+    document.querySelectorAll('.clickable-image').forEach((image) => {
+      image.setAttribute('tabindex', '0');
+      image.setAttribute('role', 'button');
+      image.setAttribute('aria-label', `Open larger preview: ${image.alt || 'image'}`);
+      image.addEventListener('click', () => openImageModal(image));
+      image.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openImageModal(image);
+        }
+      });
+    });
+
+    closeModalButton.addEventListener('click', closeImageModal);
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) closeImageModal();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && modal.classList.contains('is-open')) closeImageModal();
+    });
+  </script>
+
 </body>
 </html>

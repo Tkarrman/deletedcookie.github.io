@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plague Crew — Production Milestones</title>
+  <style>
+    :root {
+      --bg: #080908;
+      --panel: #11140f;
+      --panel-2: #171b13;
+      --text: #f1eadc;
+      --muted: #b7ad9c;
+      --accent: #a7c76b;
+      --accent-2: #d5ba73;
+      --danger: #b5654f;
+      --line: rgba(241,234,220,.12);
+      --shadow: 0 30px 80px rgba(0,0,0,.45);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(167,199,107,.16), transparent 34rem),
+        radial-gradient(circle at 85% 12%, rgba(181,101,79,.12), transparent 28rem),
+        linear-gradient(180deg, #080908 0%, #0d0f0c 55%, #070807 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 0 22px; }
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(8,9,8,.72);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 14px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .brand { font-weight: 900; letter-spacing: .08em; text-transform: uppercase; font-size: 13px; }
+    .nav a { color: var(--muted); text-decoration: none; font-size: 13px; margin-left: 16px; }
+    .nav a:hover { color: var(--text); }
+
+    section { padding: 84px 0; border-bottom: 1px solid var(--line); }
+    h1, h2, h3 { line-height: 1.05; margin: 0; }
+    h1 { font-size: clamp(48px, 8vw, 92px); letter-spacing: -0.07em; }
+    h2 { font-size: clamp(32px, 5vw, 52px); letter-spacing: -0.05em; margin-bottom: 18px; }
+    h3 { font-size: 24px; letter-spacing: -0.03em; margin-bottom: 10px; }
+    .lead { font-size: clamp(18px, 2.2vw, 26px); color: #fff7e8; max-width: 850px; line-height: 1.25; }
+    .lead-small { color: var(--muted); max-width: 820px; margin: 0 0 22px; }
+    .muted { color: var(--muted); }
+
+    .tag {
+      display: inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      border:1px solid var(--line);
+      color: var(--accent);
+      background: rgba(167,199,107,.08);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing:.08em;
+      margin-bottom: 16px;
+    }
+
+    .date { color: var(--accent-2); font-weight: 900; font-size: 18px; margin-bottom: 12px; }
+
+    .path-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .path-tag {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      padding: 6px 10px;
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+    }
+    .path-tag.self {
+      color: var(--accent-2);
+      background: rgba(213,186,115,.10);
+      border-color: rgba(213,186,115,.28);
+    }
+    .path-tag.publisher {
+      color: var(--accent);
+      background: rgba(167,199,107,.10);
+      border-color: rgba(167,199,107,.28);
+    }
+    .path-tag.decision {
+      color: var(--danger);
+      background: rgba(181,101,79,.10);
+      border-color: rgba(181,101,79,.30);
+    }
+
+    .jump-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 32px;
+    }
+    .jump-links a {
+      text-decoration: none;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.035);
+      border-radius: 999px;
+      padding: 9px 13px;
+      font-size: 13px;
+    }
+    .jump-links a:hover {
+      color: var(--text);
+      border-color: rgba(167,199,107,.45);
+    }
+
+    .milestone-list {
+      display: grid;
+      gap: 24px;
+    }
+    .milestone-detail {
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 28px;
+      padding: 28px;
+      border-radius: 26px;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--accent);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.025));
+      box-shadow: var(--shadow);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+    .feature-card {
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 24px;
+      padding: 24px;
+    }
+    .feature-card b { color: var(--text); font-size: 18px; }
+    .feature-card p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .feature-card ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .outcome {
+      border-color: rgba(167,199,107,.28);
+      background: linear-gradient(180deg, rgba(167,199,107,.10), rgba(255,255,255,.03));
+    }
+    .footer {
+      padding: 60px 0 90px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    @media (max-width: 800px) {
+      .milestone-detail { grid-template-columns: 1fr; }
+      section { padding: 58px 0; }
+      .nav-inner { align-items: flex-start; flex-direction: column; }
+      .nav a { margin-left: 0; margin-right: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand">Deleted Cookie · Plague Crew</div>
+      <div>
+        <a href="PlagueCrew.html">Back to Pitch Deck</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <section>
+      <span class="tag">Production Timeline</span>
+      <h1>Production Milestones</h1>
+      <p class="lead">
+        A detailed production roadmap for Plague Crew, from the first Vertical Slice to 1.0 launch preparation.
+      </p>
+
+      <div class="jump-links">
+        <a href="#vertical-slice">1. Vertical Slice</a>
+<a href="#steam-presence">2. Steam Presence</a>
+<a href="#content-expansion">3. Content Expansion</a>
+<a href="#early-access-release">4. Early Access Release</a>
+<a href="#production-expansion">5. Production Expansion</a>
+<a href="#systems-progression-expansion">6. Systems & Progression Expansion</a>
+<a href="#content-chaos-phase">7. Content & Chaos Phase</a>
+<a href="#gold-master-1-0-prep">8. Gold Master & 1.0 Prep</a>
+      </div>
+    </section>
+
+    <section>
+      <div class="milestone-list">
+        
+      <article class="milestone-detail" id="vertical-slice">
+        <div class="milestone-date">
+          <div class="date">Jun 30, 2026</div>
+          <span class="tag">Milestone 1</span>
+          <div class="path-tags">
+            <span class="path-tag self">Self-Publishing</span>
+            <span class="path-tag publisher">Publisher Partner</span>
+          </div>
+        </div>
+
+        <div>
+          <h2>Vertical Slice</h2>
+          <p class="lead-small">Deliver a polished first playable experience that demonstrates the core gameplay loop, tone, co-op chaos, and treatment systems.</p>
+
+          <div class="feature-grid">
+            <div class="feature-card">
+              <b>Goal</b>
+              <p>Deliver a polished first playable experience that demonstrates the core gameplay loop, tone, co-op chaos, and treatment systems.</p>
+            </div>
+
+            <div class="feature-card">
+              <b>Focus</b>
+              <p>Core gameplay systems, player feel, first village, hub, treatment gameplay, and early community building.</p>
+            </div>
+
+            <div class="feature-card">
+              <b>Key Deliverables</b>
+              <ul>
+                  <li>Playable core loop</li>
+                  <li>Initial village and hub</li>
+                  <li>First illnesses and treatments</li>
+                  <li>Basic crafting and resources</li>
+                  <li>First enemies and village threats</li>
+                  <li>Private playtest build</li>
+                  <li>Early gameplay capture</li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <b>Validation</b>
+              <p>Players understand the loop, enjoy the movement and chaos, and the build is stable enough for repeated multiplayer tests.</p>
+            </div>
+
+            <div class="feature-card outcome">
+              <b>Outcome</b>
+              <p>A strong showcase build for publishers, partners, creators, and early community testing.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="milestone-detail" id="steam-presence">
+        <div class="milestone-date">
+          <div class="date">Jul 31, 2026</div>
+          <span class="tag">Milestone 2</span>
+          <div class="path-tags">
+            <span class="path-tag self">Self-Publishing</span>
+            <span class="path-tag publisher">Publisher Partner</span>
+          </div>
+        </div>
+
+        <div>
+          <h2>Steam Presence</h2>
+          <p class="lead-small">Prepare the public-facing store presence and start building awareness before launch.</p>
+
+          <div class="feature-grid">
+            <div class="feature-card">
+              <b>Goal</b>
+              <p>Prepare the public-facing store presence and start building awareness before launch.</p>
+            </div>
+
+            <div class="feature-card">
+              <b>Focus</b>
+              <p>Steam page, trailer, wishlist campaign, creator outreach, and community playtests.</p>
+            </div>
+
+            <div class="feature-card">
+              <b>Key Deliverables</b>
+              <ul>
+                  <li>Steam page draft / launch</li>
+                  <li>Public trailer</li>
+                  <li>Wishlist campaign setup</li>
+                  <li>Creator outreach list</li>
+                  <li>Community playtest structure</li>
+                  <li>Additional village/event content</li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <b>Validation</b>
+              <p>The game has a clear public-facing pitch, wishlist funnel, and early community interest.</p>
+            </div>
+
+            <div class="feature-card outcome">
+              <b>Outcome</b>
+              <p>A stronger market-facing foundation before Early Access.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="milestone-detail" id="content-expansion">
+        <div class="milestone-date">
+          <div class="date">Aug 30, 2026</div>
+          <span class="tag">Milestone 3</span>
+          <div class="path-tags">
+            <span class="path-tag self">Self-Publishing</span>
+            <span class="path-tag publisher">Publisher Partner</span>
+          </div>
+        </div>
+
+        <div>
+          <h2>Content Expansion</h2>
+          <p class="lead-small">Expand replayability and prove that the core systems can support more content.</p>
+
+          <div class="feature-grid">
+            <div class="feature-card">
+              <b>Goal</b>
+              <p>Expand replayability and prove that the core systems can support more content.</p>
+            </div>
+
+            <div class="feature-card">
+              <b>Focus</b>
+              <p>Village generation, events, monsters, progression, and larger public testing.</p>
+            </div>
+
+            <div class="feature-card">
+              <b>Key Deliverables</b>
+              <ul>
+                  <li>More random village generation</li>
+                  <li>Additional events and monsters</li>
+                  <li>Expanded progression systems</li>
+                  <li>More replayability hooks</li>
+                  <li>Larger playtest build</li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <b>Validation</b>
+              <p>Players can replay the game and experience different situations between sessions.</p>
+            </div>
+
+            <div class="feature-card outcome">
+              <b>Outcome</b>
+              <p>A more replayable Early Access candidate.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="milestone-detail" id="early-access-release">
+        <div class="milestone-date">
+          <div class="date">Oct 30, 2026</div>
+          <span class="tag">Milestone 4</span>
+          <div class="path-tags">
+            <span class="path-tag self">Self-Publishing</span>
+            <span class="path-tag decision">Publisher Decision Point</span>
+          </div>
+        </div>
+
+        <div>
+          <h2>Early Access Release / Publisher Path Decision</h2>
+          <p class="lead-small">If self-publishing, this is the Early Access release milestone. If a publisher path is secured, this becomes the decision point where production shifts toward the larger 1.0 plan instead.</p>
+
+          <div class="feature-grid">
+            <div class="feature-card">
+              <b>Goal</b>
+              <p>Self-publishing path: release a stable Early Access version. Publisher path: use this milestone as the transition point into expanded full-production instead of launching Early Access.</p>
+            </div>
+
+            <div class="feature-card">
+              <b>Focus</b>
+              <p>Stability, optimization, onboarding, balancing, launch marketing, and release preparation.</p>
+            </div>
+
+            <div class="feature-card">
+              <b>Key Deliverables</b>
+              <ul>
+                  <li>Early Access build</li>
+                  <li>Stability and optimization pass</li>
+                  <li>Onboarding polish</li>
+                  <li>Balancing pass</li>
+                  <li>Marketing push</li>
+                  <li>Launch materials</li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <b>Validation</b>
+              <p>The game is stable, understandable, and fun enough for public Early Access players.</p>
+            </div>
+
+            <div class="feature-card outcome">
+              <b>Outcome</b>
+              <p>Either a public Early Access launch for the self-publishing path, or a clear production handoff into the publisher-funded 1.0 roadmap.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="milestone-detail" id="production-expansion">
+        <div class="milestone-date">
+          <div class="date">Nov 30, 2026</div>
+          <span class="tag">Milestone 5</span>
+          <div class="path-tags">
+            <span class="path-tag publisher">Publisher Partner</span>
+          </div>
+        </div>
+
+        <div>
+          <h2>Production Expansion</h2>
+          <p class="lead-small">Improve production pipelines and expand the systems needed for long-term content development.</p>
+
+          <div class="feature-grid">
+            <div class="feature-card">
+              <b>Goal</b>
+              <p>Improve production pipelines and expand the systems needed for long-term content development.</p>
+            </div>
+
+            <div class="feature-card">
+              <b>Focus</b>
+              <p>Pipeline improvements, larger systems, village generation, treatments, villager behavior, and multiplayer stability.</p>
+            </div>
+
+            <div class="feature-card">
+              <b>Key Deliverables</b>
+              <ul>
+                  <li>Improved content pipeline</li>
+                  <li>Expanded village generation</li>
+                  <li>New treatment mechanics</li>
+                  <li>Dynamic villager behavior</li>
+                  <li>Multiplayer stability improvements</li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <b>Validation</b>
+              <p>The team can produce more content faster and with fewer technical blockers.</p>
+            </div>
+
+            <div class="feature-card outcome">
+              <b>Outcome</b>
+              <p>A stronger foundation for continued Early Access development.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="milestone-detail" id="systems-progression-expansion">
+        <div class="milestone-date">
+          <div class="date">Jan 31, 2027</div>
+          <span class="tag">Milestone 6</span>
+          <div class="path-tags">
+            <span class="path-tag publisher">Publisher Partner</span>
+          </div>
+        </div>
+
+        <div>
+          <h2>Systems & Progression Expansion</h2>
+          <p class="lead-small">Deepen long-term player motivation through progression, upgrades, and co-op synergy.</p>
+
+          <div class="feature-grid">
+            <div class="feature-card">
+              <b>Goal</b>
+              <p>Deepen long-term player motivation through progression, upgrades, and co-op synergy.</p>
+            </div>
+
+            <div class="feature-card">
+              <b>Focus</b>
+              <p>Hub upgrades, unlockable tools, expanded crafting, regions, environmental effects, and community balancing.</p>
+            </div>
+
+            <div class="feature-card">
+              <b>Key Deliverables</b>
+              <ul>
+                  <li>Hub upgrades</li>
+                  <li>Unlockable tools</li>
+                  <li>Expanded crafting</li>
+                  <li>More regions</li>
+                  <li>Environmental effects</li>
+                  <li>Co-op synergy improvements</li>
+                  <li>Community-driven balancing</li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <b>Validation</b>
+              <p>Players have more reasons to return, experiment, and progress between sessions.</p>
+            </div>
+
+            <div class="feature-card outcome">
+              <b>Outcome</b>
+              <p>A deeper and more expandable core experience.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="milestone-detail" id="content-chaos-phase">
+        <div class="milestone-date">
+          <div class="date">Mar 31, 2027</div>
+          <span class="tag">Milestone 7</span>
+          <div class="path-tags">
+            <span class="path-tag publisher">Publisher Partner</span>
+          </div>
+        </div>
+
+        <div>
+          <h2>Content & Chaos Phase</h2>
+          <p class="lead-small">Increase the number of memorable, chaotic, and creator-friendly moments.</p>
+
+          <div class="feature-grid">
+            <div class="feature-card">
+              <b>Goal</b>
+              <p>Increase the number of memorable, chaotic, and creator-friendly moments.</p>
+            </div>
+
+            <div class="feature-card">
+              <b>Focus</b>
+              <p>Advanced outbreaks, village panic, monsters, rare events, co-op interactions, AI, and streamer-focused chaos.</p>
+            </div>
+
+            <div class="feature-card">
+              <b>Key Deliverables</b>
+              <ul>
+                  <li>Advanced outbreaks</li>
+                  <li>Expanded village panic</li>
+                  <li>More monsters</li>
+                  <li>Rare events</li>
+                  <li>Improved co-op interactions</li>
+                  <li>Stronger AI behavior</li>
+                  <li>Streamer-friendly chaos moments</li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <b>Validation</b>
+              <p>Players create memorable stories and shareable moments from unpredictable gameplay.</p>
+            </div>
+
+            <div class="feature-card outcome">
+              <b>Outcome</b>
+              <p>A more chaotic, replayable, and content-rich version of the game.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="milestone-detail" id="gold-master-1-0-prep">
+        <div class="milestone-date">
+          <div class="date">May 31, 2027</div>
+          <span class="tag">Milestone 8</span>
+          <div class="path-tags">
+            <span class="path-tag publisher">Publisher Partner</span>
+          </div>
+        </div>
+
+        <div>
+          <h2>Gold Master & 1.0 Prep</h2>
+          <p class="lead-small">Prepare the game for a polished 1.0 release.</p>
+
+          <div class="feature-grid">
+            <div class="feature-card">
+              <b>Goal</b>
+              <p>Prepare the game for a polished 1.0 release.</p>
+            </div>
+
+            <div class="feature-card">
+              <b>Focus</b>
+              <p>Performance, accessibility, tutorials, final balancing, audio/visual polish, release trailer, press, creators, and launch campaign.</p>
+            </div>
+
+            <div class="feature-card">
+              <b>Key Deliverables</b>
+              <ul>
+                  <li>Performance pass</li>
+                  <li>Accessibility pass</li>
+                  <li>Tutorial polish</li>
+                  <li>Final balancing</li>
+                  <li>Audio/visual polish</li>
+                  <li>Release trailer</li>
+                  <li>Press outreach</li>
+                  <li>Creator previews</li>
+                  <li>Launch campaign</li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <b>Validation</b>
+              <p>The game feels polished, complete, understandable, and ready for a 1.0 launch.</p>
+            </div>
+
+            <div class="feature-card outcome">
+              <b>Outcome</b>
+              <p>A full release candidate with strong launch materials.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      </div>
+    </section>
+
+    <div class="footer">
+      <strong>Plague Crew</strong><br />
+      Production milestone plan for Deleted Cookie AB.
+    </div>
+  </main>
+</body>
+</html>
