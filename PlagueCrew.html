@@ -116,7 +116,7 @@
     .loop-item:before { content: counter(loop); color: #050605; background: var(--accent-2); width: 28px; height: 28px; border-radius: 999px; display: grid; place-items: center; font-weight: 900; margin-bottom: 14px; }
 
     table { width: 100%; border-collapse: collapse; overflow: hidden; border-radius: 18px; }
-    th, td { padding: 15px 14px; border-bottom: 1px solid var(--line); text-align: left; }
+    th, td { padding: 8px 7px; border-bottom: 1px solid var(--line); text-align: left; }
     th { color: var(--accent); background: rgba(167,199,107,.08); font-size: 13px; text-transform: uppercase; letter-spacing:.08em; }
     td { color: var(--muted); }
     tr:last-child td { border-bottom: 0; }
@@ -243,6 +243,62 @@
       section { padding: 58px 0; }
       .stats, .loop, .team, .feature-list { grid-template-columns: 1fr; }
     }
+
+    .contact-card {
+        text-decoration: none;
+        color: inherit;
+        border-radius: 26px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background:
+                linear-gradient(180deg,
+                rgba(255,255,255,.06),
+                rgba(255,255,255,.025));
+        transition: .25s ease;
+        box-shadow: var(--shadow);
+    }
+
+    .contact-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(167,199,107,.28);
+        background:
+                linear-gradient(180deg,
+                rgba(167,199,107,.10),
+                rgba(255,255,255,.03));
+    }
+
+    .contact-content {
+        padding: 34px;
+    }
+
+    .contact-content h3 {
+        font-size: 30px;
+        margin: 16px 0 12px;
+    }
+
+    .contact-content p {
+        color: var(--muted);
+        margin-bottom: 26px;
+        max-width: 420px;
+    }
+
+    .contact-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 18px;
+        border-radius: 999px;
+        background: rgba(167,199,107,.12);
+        border: 1px solid rgba(167,199,107,.22);
+        color: var(--accent);
+        font-weight: 800;
+        letter-spacing: .03em;
+        transition: .2s ease;
+    }
+
+    .contact-card:hover .contact-button {
+        transform: translateX(4px);
+    }
   </style>
 </head>
 <body>
@@ -359,19 +415,19 @@
       </div>
       <div class="table-card" style="margin-top:24px;">
         <table>
-          <thead><tr><th>Comparable Game</th><th>Estimated Owners</th><th>Price</th><th>Estimated Revenue</th></tr></thead>
+          <thead><tr><th>Comparable Game</th><th>Estimated Owners</th><th>Price</th><th>Estimated Net Revenue</th></tr></thead>
           <tbody>
-              <tr><td>We Gotta Go</td><td>30,000</td><td>€9</td><td>€270,000</td></tr>
+              <tr><td>Unplagued</td><td>25,000</td><td>€8</td><td>€60,000</td></tr>
+              <tr><td>Night Shippers</td><td>30,000</td><td>€8</td><td>€90,000</td></tr>
               <tr><td>Climber Animals: Together</td><td>250,000</td><td>€4</td><td>€500,000</td></tr>
-              <tr><td>Unplagued</td><td>235,650</td><td>€15</td><td>€808,279</td></tr>
               <tr><td>Roadside Research</td><td>500,000</td><td>€9</td><td>€4.5M</td></tr>
               <tr><td>Far Far West</td><td>800,000</td><td>€20</td><td>€8M</td></tr>
               <tr><td>RV There Yet?</td><td>3M</td><td>€8</td><td>€12M</td></tr>
-              <tr><td>PEAK</td><td>16M</td><td>€8</td><td>€63M</td></tr>
-              <tr><td>Lethal Company</td><td>20M</td><td>€10</td><td>€97M</td></tr>
               <tr><td>R.E.P.O.</td><td>19M</td><td>€10</td><td>€91M</td></tr>
+              <tr><td>Lethal Company</td><td>20M</td><td>€10</td><td>€97M</td></tr>
           </tbody>
         </table>
+          <i>We used publicly available tools such as SteamDB and Impress Games Steam Revenue Calculator to estimate player counts, pricing, review performance, and revenue potential for similar multiplayer games within the co-op social-chaos genre.</i>      
       </div>
     </section>
 
@@ -386,7 +442,7 @@
           <table>
             <thead><tr><th>Scenario</th><th>Copies Sold</th><th>Gross Revenue</th></tr></thead>
             <tbody>
-              <tr><td>Conservative</td><td>20,000</td><td>€140k–€250k</td></tr>
+              <tr><td>Conservative</td><td>20,000-30,000</td><td>€100k–€250k</td></tr>
               <tr><td>Expected</td><td>50,000–75,000</td><td>€350k–€900k</td></tr>
               <tr><td>High Success</td><td>150,000+</td><td>€1.5M+</td></tr>
             </tbody>
@@ -577,7 +633,54 @@
                     <div class="member"><b>Harald Af Malmborg</b><small>SFX / Music</small><p>SteamWorld Heist 2, Lost in Random, Lost in Random: Eternal Die, Islanders: New Shores</p></div>
                 </div>
     </section>
+      <section id="contact">
+          <div class="section-head">
+              <div>
+                  <span class="tag">Contact</span>
+                  <h2>Book a Meeting</h2>
+              </div>
+              <p>
+                  Interested in Plague Crew, publishing opportunities, partnerships,
+                  or investment discussions? Let’s talk.
+              </p>
+          </div>
 
+          <div class="grid-2">
+
+              <!-- Tobias -->
+              <a href="tobiaskarrman.html" class="contact-card">
+                  <div class="contact-content">
+                      <span class="tag">Programming / Production</span>
+                      <h3>Tobias Kärrman</h3>
+                      <p>
+                          Co-founder and programmer focused on multiplayer systems,
+                          gameplay, and technical production.
+                      </p>
+
+                      <div class="contact-button">
+                          Book Meeting →
+                      </div>
+                  </div>
+              </a>
+
+              <!-- Max -->
+              <a href="maxnafar.html" class="contact-card">
+                  <div class="contact-content">
+                      <span class="tag">Art Direction / Visuals</span>
+                      <h3>Max Nafar</h3>
+                      <p>
+                          Co-founder and 2D artist focused on visual identity,
+                          mood, presentation, and creative direction.
+                      </p>
+
+                      <div class="contact-button">
+                          Book Meeting →
+                      </div>
+                  </div>
+              </a>
+
+          </div>
+      </section>  
     <div class="footer">
       <strong>Plague Crew</strong><br />A chaotic co-op survival comedy/horror pitch by Deleted Cookie AB.
     </div>
