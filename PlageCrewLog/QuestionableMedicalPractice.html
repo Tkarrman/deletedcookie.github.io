@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Plague Crew — Devlog</title>
+  <title>Plague Crew Devlog — Post Title</title>
   <style>
 
     :root {
@@ -195,86 +195,74 @@
     }
   
 
-    .hero-actions {
+    .post-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
+      gap: 10px;
+      margin: 22px 0 0;
     }
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      border-radius: 999px;
-      padding: 11px 16px;
-      font-weight: 900;
-      font-size: 13px;
-      letter-spacing: .04em;
-      border: 1px solid rgba(167,199,107,.38);
-      background: rgba(167,199,107,.12);
-      color: var(--text);
-    }
-    .button.secondary {
-      background: rgba(255,255,255,.04);
-      border-color: var(--line);
-      color: var(--muted);
-    }
-    .devlog-grid {
+    .post-layout {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 22px;
+      grid-template-columns: minmax(0, 1fr) 280px;
+      gap: 28px;
+      align-items: start;
     }
-    .devlog-card {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      min-height: 100%;
-      padding: 24px;
+    .post-content {
+      padding: 30px;
       border-radius: 26px;
       border: 1px solid var(--line);
       background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.025));
       box-shadow: var(--shadow);
-      text-decoration: none;
     }
-    .devlog-card:hover {
-      border-color: rgba(167,199,107,.45);
-      transform: translateY(-2px);
+    .post-content h2 {
+      margin-top: 42px;
     }
-    .devlog-card .date {
-      font-size: 14px;
-      margin: 0;
+    .post-content h2:first-child {
+      margin-top: 0;
     }
-    .devlog-card h3 {
-      margin: 0;
-    }
-    .devlog-card p {
-      margin: 0;
+    .post-content p, .post-content li {
       color: var(--muted);
-      font-size: 15px;
+      font-size: 16px;
     }
-    .thumbnail {
+    .post-content img {
       width: 100%;
-      aspect-ratio: 16 / 9;
-      border-radius: 20px;
-      overflow: hidden;
+      border-radius: 22px;
       border: 1px solid var(--line);
-      background:
-        radial-gradient(circle at 30% 20%, rgba(167,199,107,.18), transparent 18rem),
-        linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
-      display: grid;
-      place-items: center;
-      color: var(--muted);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      font-size: 12px;
+      margin: 18px 0;
     }
-    .thumbnail img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .callout {
+      border-left: 4px solid var(--accent);
+      background: rgba(167,199,107,.08);
+      border-radius: 18px;
+      padding: 18px;
+      margin: 24px 0;
+      color: var(--text);
+    }
+    .side-card {
+      position: sticky;
+      top: 86px;
+      padding: 22px;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.025));
+    }
+    .side-card a {
       display: block;
+      color: var(--muted);
+      text-decoration: none;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    .side-card a:hover { color: var(--text); }
+        .post-video {
+      width: 100%;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      margin: 18px 0;
+    }
+    @media (max-width: 900px) {
+      .post-layout { grid-template-columns: 1fr; }
+      .side-card { position: static; }
     }
   </style>
 </head>
@@ -283,6 +271,7 @@
     <div class="nav-inner">
       <div class="brand">Deleted Cookie · Plague Crew</div>
       <div>
+        <a href="index.html">All Devlogs</a>
         <a href="../PlagueCrew.html">Pitch Deck</a>
         <a href="../PlagueCrew_Milestones.html">Milestones</a>
       </div>
@@ -291,83 +280,56 @@
 
   <main class="wrap">
     <section>
-      <span class="tag">Devlog</span>
-      <h1>Development Updates</h1>
+      <span class="tag">Devlog Update</span>
+      <h1>
+          Questionable Medical Practice
+      </h1>
       <p class="lead">
-        Follow the production of Plague Crew as we build the game, test co-op chaos, and shape the world of tiny plague doctors with very questionable methods.
+          Testing a limb system where players can remove limbs from villagers.
       </p>
-      <div class="hero-actions">
-        <a class="button secondary" href="PlagueCrew_Milestones.html">View Production Milestones</a>
+
+      <div class="post-meta">
+          <span class="path-tag self">2026-05-31</span>
+        <span class="path-tag publisher">Milestone: Pre-Production</span>
+        <span class="path-tag">Category: Feature testing</span>
       </div>
     </section>
 
     <section>
-        <div class="section-head">
-            <div>
-                <span class="tag">Released Posts</span>
-                <h2>Latest Devlogs</h2>
-            </div>
-            <p class="lead-small">The teams work</p>
-        </div>
+      <div class="post-layout">
+          <article class="post-content">
+              <h2>What We Worked On</h2>
+              <p>
+                  We experimented with medieval surgery and different ways for players to interact with villagers. One of our goals is to create memorable and chaotic moments between friends, and questionable medical practices felt like a natural fit.
+                  Our villagers are built using a modular system, allowing different limbs to be detached during gameplay. We want the mechanic to be simple and easy to understand, but not entirely risk-free. A careless surgeon might remove a little more than intended.
+                  Detached limbs can then be carried away, collected for later use, or returned to the Hub for purposes that are definitely ethical and medically approved.
+              </p>
 
-        <div class="devlog-grid">
-            <!-- COPY THIS CARD FOR EACH NEW DEVLOG POST -->
-            <a class="devlog-card" href="NGC.html">
-                <div class="thumbnail">
-                    <img src="images/NGC.jpg" alt="Vertical slice screenshot" />
-                    Image / Screenshot
-                </div>
-                <div class="date">2026-05-31</div>
-                <h3>The First Big Test for Plague Crew</h3>
-                <p>
-                    We spent the week at Nordic Game Conference pitching Plague Crew, meeting publishers, developers, and industry veterans. The response exceeded our expectations and gave us even more confidence that we're building something special.
-                </p>
-                <div class="path-tags">
-                    <span class="path-tag self">Milestone: Pre-Production</span>
-                    <span class="path-tag publisher">Category: Concept / Pitch</span>
-                </div>
-            </a>
+              <video controls class="post-video">
+                  <source src="videos/NoMoreFoot.mp4" type="video/mp4">
+              </video>
+              <img src="images/NoLimb.png" alt="Vertical slice screenshot" />
+          </article>
 
-            <a class="devlog-card" href="DragVillager.html">
-                <div class="thumbnail">
-                    <img src="images/DragVillager.png" alt="Vertical slice screenshot" />
-                    Image / Screenshot
-                </div>
-                <div class="date">2026-05-31</div>
-                <h3>Just around the corner</h3>
-                <p>
-                    First test of dragging a villager using a ragdoll-based system.
-                </p>
-                <div class="path-tags">
-                    <span class="path-tag self">Milestone: Pre-Production</span>
-                    <span class="path-tag publisher">Category: Feature testing</span>
-                </div>
-            </a>
+        <aside class="side-card">
+          <span class="tag">Post Info</span>
+          <h3>Quick Summary</h3>
+          <p class="muted">
+              Testing a limb system where players can remove limbs from villagers.
+          </p>
+          <div class="path-tags">
+              <span class="path-tag self">Feature testing</span>
+          </div>
 
-            <a class="devlog-card" href="QuestionableMedicalPractice.html">
-                <div class="thumbnail">
-                    <img src="images/ShopOffLimb.png" alt="Vertical slice screenshot" />
-                    Image / Screenshot
-                </div>
-                <div class="date">2026-05-31</div>
-                <h3>
-                    Questionable Medical Practice
-                </h3>
-                <p>
-                    Testing a limb system where players can remove limbs from villagers.
-                </p>
-                <div class="path-tags">
-                    <span class="path-tag self">Milestone: Pre-Production</span>
-                    <span class="path-tag publisher">Category: Feature testing</span>
-                </div>
-            </a>
-        </div>
-
+          <a href="#top">Back to top</a>
+          <a href="index.html">Back to all devlogs</a>
+        </aside>
+      </div>
     </section>
 
     <div class="footer">
       <strong>Plague Crew</strong><br />
-      Development updates from Deleted Cookie AB.
+      Devlog for Deleted Cookie AB.
     </div>
   </main>
 </body>
