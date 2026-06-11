@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plague Crew - Pitch</title>
+  <style>
+    :root {
+      --bg: #080908;
+      --panel: #11140f;
+      --panel-2: #171b13;
+      --text: #f1eadc;
+      --muted: #b7ad9c;
+      --accent: #a7c76b;
+      --accent-2: #d5ba73;
+      --danger: #b5654f;
+      --line: rgba(241,234,220,.12);
+      --shadow: 0 30px 80px rgba(0,0,0,.45);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(167,199,107,.16), transparent 34rem),
+        radial-gradient(circle at 85% 12%, rgba(181,101,79,.12), transparent 28rem),
+        linear-gradient(180deg, #080908 0%, #0d0f0c 55%, #070807 100%);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(8,9,8,.72);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 14px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    .nav a:hover { color: var(--text); }
+
+    .slide {
+      min-height: calc(100vh - 52px);
+      padding: 64px 22px;
+      border-bottom: 1px solid var(--line);
+      display: grid;
+      align-items: center;
+    }
+
+    .wrap {
+      width: min(1240px, 100%);
+      margin: 0 auto;
+    }
+
+    .hero-grid,
+    .split {
+      display: grid;
+      grid-template-columns: 1.02fr .98fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .eyebrow,
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--line);
+      background: rgba(167,199,107,.08);
+      color: var(--accent);
+      border-radius: 999px;
+      padding: 7px 11px;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.04;
+    }
+
+    h1 {
+      margin-top: 18px;
+      font-size: clamp(48px, 8vw, 96px);
+      letter-spacing: -0.07em;
+    }
+
+    h2 {
+      margin-top: 16px;
+      font-size: clamp(31px, 4.8vw, 55px);
+      letter-spacing: -0.055em;
+    }
+
+    h3 {
+      font-size: clamp(20px, 2.4vw, 27px);
+      letter-spacing: -0.03em;
+    }
+
+    p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .lead {
+      margin-top: 22px;
+      max-width: 840px;
+      color: #fff7e8;
+      font-size: clamp(18px, 2vw, 26px);
+      line-height: 1.22;
+    }
+
+    .sublead {
+      margin-top: 18px;
+      max-width: 780px;
+      font-size: clamp(15px, 1.45vw, 18px);
+    }
+
+    .quote {
+      color: var(--accent-2);
+      font-size: clamp(23px, 3.6vw, 44px);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -0.045em;
+    }
+
+    .media-frame,
+    .panel,
+    .stat,
+    .feature,
+    .story-beat {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.025));
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .media-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 16 / 10;
+    }
+
+    .media-frame.logo img {
+      object-fit: contain;
+      padding: 32px;
+      background:
+        radial-gradient(circle at 50% 30%, rgba(167,199,107,.15), transparent 18rem),
+        rgba(0,0,0,.22);
+    }
+
+    .panel {
+      padding: clamp(24px, 3vw, 36px);
+    }
+
+    .panel p + p { margin-top: 14px; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .stat {
+      padding: 18px;
+      min-height: 104px;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--text);
+      font-size: 25px;
+      line-height: 1.05;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .pillars,
+    .features,
+    .beats,
+    .team-grid {
+      display: grid;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .pillars { grid-template-columns: repeat(3, 1fr); }
+    .features { grid-template-columns: repeat(4, 1fr); }
+    .beats { grid-template-columns: repeat(3, 1fr); }
+    .team-grid { grid-template-columns: repeat(4, 1fr); }
+
+    .feature,
+    .story-beat {
+      padding: 22px;
+      min-height: 150px;
+    }
+
+    .feature b,
+    .story-beat b {
+      display: block;
+      margin-bottom: 9px;
+      color: var(--text);
+      font-size: 18px;
+    }
+
+    .feature p,
+    .story-beat p {
+      font-size: 14px;
+    }
+
+    .feature .small-media {
+      margin-top: 18px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      background: rgba(0,0,0,.22);
+    }
+
+    .feature .small-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .number {
+      width: 31px;
+      height: 31px;
+      margin-bottom: 14px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: var(--accent-2);
+      color: #080908;
+      font-weight: 950;
+    }
+
+    .big-line {
+      max-width: 1000px;
+      color: var(--text);
+      font-size: clamp(28px, 5vw, 58px);
+      line-height: 1.02;
+      letter-spacing: -0.06em;
+      font-weight: 950;
+    }
+
+    .danger { color: var(--danger); }
+    .gold { color: var(--accent-2); }
+    .green { color: var(--accent); }
+
+    .market-grid,
+    .funding-grid {
+      display: grid;
+      gap: 16px;
+      margin-top: 30px;
+    }
+
+    .market-grid { grid-template-columns: repeat(4, 1fr); }
+    .funding-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .market-card,
+    .funding-card {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.025));
+      box-shadow: var(--shadow);
+    }
+
+    .market-card strong,
+    .funding-card strong {
+      display: block;
+      color: var(--text);
+      font-size: clamp(25px, 3vw, 38px);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .market-card span,
+    .funding-card span {
+      display: block;
+      margin-top: 8px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .market-card p,
+    .funding-card p {
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    .closing {
+      text-align: center;
+    }
+
+    .closing .media-frame {
+      max-width: 780px;
+      margin: 34px auto 0;
+    }
+
+    .footer {
+      padding: 44px 22px 70px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      .stats,
+      .features,
+      .team-grid,
+      .market-grid,
+      .funding-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .pillars,
+      .beats {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .slide {
+        min-height: auto;
+        padding: 58px 18px;
+      }
+
+      .stats,
+      .features,
+      .team-grid,
+      .market-grid,
+      .funding-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .media-frame,
+      .panel,
+      .stat,
+      .feature,
+      .story-beat,
+      .market-card,
+      .funding-card {
+        border-radius: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand">Deleted Cookie · Plague Crew Pitch</div>
+      <div class="nav-links">
+        <a href="#hook">Hook</a>
+        <a href="#game">Game</a>
+        <a href="#loop">Loop</a>
+        <a href="#market">Market</a>
+        <a href="#funding">Funding</a>
+        <a href="#team">Team</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="slide" id="hook">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">Chaotic co-op comedy horror</span>
+          <h1>Plague Crew</h1>
+          <p class="quote">"The plague is the easy part."</p>
+          <p class="lead">
+            Four plague doctors arrive to save a dying village. Five minutes later, half of it is on fire.
+          </p>
+          <div class="stats">
+            <div class="stat"><strong>1-4</strong><span>players in frantic co-op</span></div>
+            <div class="stat"><strong>5 min</strong><span>from diagnosis to disaster</span></div>
+            <div class="stat"><strong>Dark</strong><span>medieval humor and folklore</span></div>
+            <div class="stat"><strong>Stories</strong><span>built from player mistakes</span></div>
+          </div>
+        </div>
+        <div class="media-frame logo">
+          <img src="PlagueDoctor/image5.png" alt="Plague Crew logo" />
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="game">
+      <div class="wrap split">
+        <div class="media-frame">
+          <img src="PlagueDoctor/image4.png" alt="A dark medieval village concept for Plague Crew" />
+        </div>
+        <div class="panel">
+          <span class="tag">The Game</span>
+          <h2>A village is dying. You are here to help. Probably.</h2>
+          <p class="sublead">
+            Chaotic co-op in a dark, funny medieval world.
+          </p>
+          <p>
+            Save villagers from disease before your own treatments become the real problem.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="wrap">
+        <span class="tag">Vision</span>
+        <h2>Three pillars drive every system.</h2>
+        <div class="pillars">
+          <div class="story-beat">
+            <div class="number">1</div>
+            <b>Chaotic cooperation</b>
+            <p>Investigate, argue, carry, craft, treat, panic.</p>
+          </div>
+          <div class="story-beat">
+            <div class="number">2</div>
+            <b>Dark humor</b>
+            <p>Medieval horror with terrible medical confidence.</p>
+          </div>
+          <div class="story-beat">
+            <div class="number">3</div>
+            <b>Consequences</b>
+            <p>Every cure can become the next disaster.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="loop">
+      <div class="wrap split">
+        <div>
+          <span class="tag">Core Loop</span>
+          <h2>Diagnose. Gather. Mix. Treat. Regret.</h2>
+          <p class="lead">
+            Examine symptoms, collect ingredients, brew medicine, treat villagers.
+          </p>
+          <p class="sublead">
+            Time pressure, limited resources, and voice chat do the rest.
+          </p>
+        </div>
+        <div class="media-frame">
+          <img src="PlagueDoctor/image7.png" alt="Cauldron and crafting concept for Plague Crew" />
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="wrap">
+        <span class="tag">Features</span>
+        <h2>Systems that create memorable disasters.</h2>
+        <div class="features">
+          <div class="feature">
+            <b>Investigate Symptoms</b>
+            <p>Read symptoms before the outbreak spreads.</p>
+            <div class="small-media"><img src="PlagueDoctor/Concept_05.png" alt="Investigation concept art" /></div>
+          </div>
+          <div class="feature">
+            <b>Gather and Brew</b>
+            <p>Combine ingredients in a shared cauldron.</p>
+            <div class="small-media"><img src="PlagueDoctor/image7.png" alt="Cauldron crafting feature" /></div>
+          </div>
+          <div class="feature">
+            <b>Surgery and Treatments</b>
+            <p>Medicine, surgery, quarantine, and panic.</p>
+            <div class="small-media"><img src="PlagueCrewLog/images/ShopOffLimb.png" alt="Questionable surgery feature" /></div>
+          </div>
+          <div class="feature">
+            <b>Dragging and Disposal</b>
+            <p>Move bodies before they become a bigger issue.</p>
+            <div class="small-media"><img src="PlagueCrewLog/images/DragVillager.png" alt="Dragging a villager feature" /></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="wrap">
+        <span class="tag">Why It Is Different</span>
+        <p class="big-line">
+          Players try to solve problems. Every solution can make things worse.
+        </p>
+        <div class="beats">
+          <div class="story-beat"><b>The medicine works.</b><p>Or it poisons the patient.</p></div>
+          <div class="story-beat"><b>The amputation stops the infection.</b><p>Or you cut off the wrong leg.</p></div>
+          <div class="story-beat"><b>The corpse is probably fine.</b><p>Or it becomes the start of the next catastrophe.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="market">
+      <div class="wrap split">
+        <div class="panel">
+          <span class="tag">Market Opportunity</span>
+          <h2>Social co-op runs on stories.</h2>
+          <p class="sublead">
+            Players remember the session, not the perfect strategy.
+          </p>
+          <p>
+            Plague Crew adds a strong fantasy: plague doctors, witches, rats, disease, folklore, and bad medicine.
+          </p>
+        </div>
+        <div class="media-frame">
+          <img src="PlagueDoctor/Concept_07.png" alt="A Plague Crew character hiding in a barrel" />
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="funding">
+      <div class="wrap">
+        <span class="tag">Market Signals</span>
+        <h2>Comparable co-op games show the ceiling.</h2>
+        <div class="market-grid">
+          <div class="market-card">
+            <strong>20M</strong>
+            <span>Lethal Company</span>
+            <p>Estimated owners. A breakout example for social horror co-op.</p>
+          </div>
+          <div class="market-card">
+            <strong>19M</strong>
+            <span>R.E.P.O.</span>
+            <p>Estimated owners. Physics, panic, and friends creating clips.</p>
+          </div>
+          <div class="market-card">
+            <strong>3M</strong>
+            <span>RV There Yet?</span>
+            <p>Estimated owners. Broad appetite for chaotic friend-group games.</p>
+          </div>
+          <div class="market-card">
+            <strong>500k</strong>
+            <span>Roadside Research</span>
+            <p>Estimated owners. Smaller teams can still reach strong outcomes.</p>
+          </div>
+        </div>
+        <p class="sublead">
+          Estimates based on public Steam-facing tools and comparable social-chaos multiplayer titles.
+        </p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="wrap">
+        <span class="tag">Funding Paths</span>
+        <h2>Two ways forward.</h2>
+        <div class="funding-grid">
+          <div class="funding-card">
+            <strong>EUR 60k</strong>
+            <span>Early Access path</span>
+            <p>Finish a tight public Early Access version, launch around the core loop, and build community momentum.</p>
+          </div>
+          <div class="funding-card">
+            <strong>EUR 200k</strong>
+            <span>Full 1.0 path</span>
+            <p>Expand content, polish, progression, villages, events, enemies, and launch with a stronger full release.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="team">
+      <div class="wrap">
+        <span class="tag">Deleted Cookie</span>
+        <h2>A small team with shipped-game experience.</h2>
+        <p class="sublead">
+          Former developers from SteamWorld Build, Wavetale, Islanders: New Shores, Lost in Random, and Bloody Trapland 2.
+        </p>
+        <div class="team-grid">
+          <div class="story-beat"><b>Multiplayer</b><p>Networked gameplay and co-op systems.</p></div>
+          <div class="story-beat"><b>Game Feel</b><p>Readable interactions and physical comedy.</p></div>
+          <div class="story-beat"><b>Visuals</b><p>Strong silhouettes and a clear dark-comedy world.</p></div>
+          <div class="story-beat"><b>Audio</b><p>Panic, humor, horror, and memorable moments.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="wrap closing">
+        <span class="tag">The Goal</span>
+        <h2>After every session, players should say:</h2>
+        <p class="quote">
+          "Remember when we turned the whole village into zombies because someone put the wrong mushroom in the pot?"
+        </p>
+        <p class="sublead" style="margin-left:auto;margin-right:auto;">
+          That is the kind of story that makes great co-op games.
+        </p>
+        <div class="media-frame">
+          <img src="PlagueDoctor/image1.png" alt="Plague Crew plague doctor character art" />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="footer">
+    <strong>Plague Crew</strong><br />
+    A chaotic co-op comedy horror pitch by Deleted Cookie AB.
+  </div>
+</body>
+</html>
