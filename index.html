@@ -1,164 +1,333 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Deleted Cookie</title>
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
+  <title>Deleted Cookie</title>
+  <meta name="description" content="A game portfolio for Deleted Cookie — mobile, PC and cozy indie games." />
   <style>
-    body {
-      margin: 0;
-      font-family: system-ui, sans-serif;
-      background: #0e0e0e;
-      color: #fff;
-      text-align: center;
+    :root{
+      --bg:#050505;
+      --panel:#101010;
+      --panel-2:#161616;
+      --text:#f7f7f2;
+      --muted:#b7b7ad;
+      --soft:#2b2b2b;
+      --accent:#ffffff;
+      --radius:28px;
+      --shadow:0 24px 80px rgba(0,0,0,.55);
     }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(255,255,255,.10), transparent 25rem),
+        radial-gradient(circle at 85% 20%, rgba(255,255,255,.06), transparent 24rem),
+        linear-gradient(180deg,#000 0%,var(--bg) 42%,#000 100%);
+      color:var(--text);
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      line-height:1.55;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .page{width:min(1180px, calc(100% - 40px));margin:0 auto}
+    .nav{
+      position:sticky;top:0;z-index:20;
+      backdrop-filter:blur(18px);
+      background:rgba(0,0,0,.64);
+      border-bottom:1px solid rgba(255,255,255,.1);
+    }
+    .nav-inner{width:min(1180px, calc(100% - 40px));margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 0}
+    .brand{font-weight:900;letter-spacing:-.04em;font-size:1.1rem}
+    .brand span{color:var(--muted);font-weight:700}
+    .nav-links{display:flex;gap:14px;flex-wrap:wrap;font-size:.9rem;color:var(--muted)}
+    .nav-links a:hover{color:var(--text)}
+    .hero{padding:86px 0 54px;display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
+    .eyebrow{display:inline-flex;gap:10px;align-items:center;border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:8px 14px;color:var(--muted);background:rgba(255,255,255,.04);font-size:.9rem}
+    .dot{width:8px;height:8px;border-radius:50%;background:#fff;box-shadow:0 0 20px #fff}
+    h1{font-size:clamp(3rem,8vw,7.2rem);line-height:.88;letter-spacing:-.08em;margin:20px 0 24px;max-width:870px}
+    .lead{font-size:clamp(1.08rem,2vw,1.35rem);color:var(--muted);max-width:720px;margin:0}
+    .hero-card{background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.035));border:1px solid rgba(255,255,255,.13);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);transform:rotate(1.2deg)}
+    .hero-card img{width:100%;border-radius:20px;background:#111;aspect-ratio:16/9;object-fit:cover}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+    .stat{background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:16px;text-align:center}
+    .stat strong{display:block;font-size:1.5rem}.stat span{color:var(--muted);font-size:.85rem}
+    .section-title{margin:50px 0 20px;font-size:clamp(2rem,4vw,3.5rem);letter-spacing:-.06em}
+    .grid{display:grid;gap:26px;padding-bottom:80px}
+    .game{background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.035));border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+    .game-inner{display:grid;grid-template-columns:.9fr 1.1fr;gap:0;min-height:430px}
+    .media{padding:18px;background:radial-gradient(circle at 50% 30%,rgba(255,255,255,.12),transparent 22rem),#0b0b0b;display:flex;flex-direction:column;gap:14px;justify-content:center}
+    .hero-img{border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.12);background:#151515}
+    .hero-img img{width:100%;aspect-ratio:16/9;object-fit:cover}
+    .shots{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .shots.two{grid-template-columns:repeat(2,1fr)}
+    .shots img{width:100%;aspect-ratio:1.55/1;object-fit:cover;border-radius:16px;border:1px solid rgba(255,255,255,.12);background:#151515}
+    .shots.portrait img{aspect-ratio:9/16;object-fit:cover}
+    .content{padding:34px;display:flex;flex-direction:column;justify-content:center}
+    .tag{width:max-content;border:1px solid rgba(255,255,255,.16);color:#111;background:#fff;border-radius:999px;padding:7px 12px;font-weight:800;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px}
+    h2{font-size:clamp(2rem,4vw,4.1rem);line-height:.92;letter-spacing:-.07em;margin:0 0 18px}
+    .content p{color:var(--muted);font-size:1.04rem;margin:0 0 12px;max-width:630px}
+    .buttons{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+    .button{border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:11px 16px;background:rgba(255,255,255,.06);font-weight:800;color:#fff;transition:.2s ease}
+    .button.primary{background:#fff;color:#000}
+    .button:hover{transform:translateY(-2px);border-color:#fff}
 
-    header {
-      padding: 40px 20px 20px;
-    }
+    .featured{margin:14px 0 70px;position:relative;overflow:hidden;border-radius:34px;border:1px solid rgba(180,255,150,.22);background:linear-gradient(135deg,rgba(30,50,26,.92),rgba(8,8,8,.96) 48%,rgba(0,0,0,.98));box-shadow:0 30px 100px rgba(0,0,0,.65)}
+    .featured:before{content:"";position:absolute;inset:-1px;background:radial-gradient(circle at 18% 14%,rgba(180,255,150,.18),transparent 24rem),radial-gradient(circle at 82% 55%,rgba(255,255,255,.08),transparent 26rem);pointer-events:none}
+    .featured-inner{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center;padding:28px}
+    .featured-media{display:grid;gap:12px}
+    .featured-media .main-shot{border-radius:26px;overflow:hidden;border:1px solid rgba(255,255,255,.16);background:#111}
+    .featured-media .main-shot img{width:100%;aspect-ratio:16/8.2;object-fit:cover}
+    .featured-shots{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .featured-shots img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:18px;border:1px solid rgba(255,255,255,.14);background:#101010}
+    .featured-copy{padding:20px 18px 20px 4px}
+    .kicker{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(180,255,150,.35);color:#d8ffd0;background:rgba(120,180,95,.12);border-radius:999px;padding:8px 13px;font-weight:900;font-size:.78rem;text-transform:uppercase;letter-spacing:.09em;margin-bottom:18px}
+    .featured-copy h2{font-size:clamp(2.5rem,6vw,5.7rem);margin-bottom:14px}
+    .quote{font-size:clamp(1.15rem,2.2vw,1.55rem);color:#fff;font-weight:900;margin:0 0 14px!important}
+    .feature-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:20px 0 0;padding:0;list-style:none}
+    .feature-list li{border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.28);border-radius:16px;padding:12px 14px;color:#eceee7;font-weight:800;font-size:.92rem}
+    .footer{border-top:1px solid rgba(255,255,255,.1);color:var(--muted);padding:34px 0 50px;text-align:center}
 
-    header img {
-      max-width: 700px;
-    }
 
-    section {
-      padding: 5px 0px;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    h2 {
-      margin-bottom: 20px;
-      font-size: 28px;
-    }
-
-    .games {
-      display: grid;
-      gap: 60px;
-    }
-
-    .game-card {
-      background: #181818;
-      padding: 30px;
-      border-radius: 12px;
-    }
-
-    .game-card img.promo {
-      width: 100%;
-      max-width: 600px;
-      border-radius: 12px;
-      margin-bottom: 20px;
-    }
-
-    .platforms {
-      margin-top: 15px;
-    }
-
-    .platforms a img {
-      height: 45px;
-      margin: 10px;
-      transition: transform 0.2s ease;
-    }
-
-    .platforms a img:hover {
-      transform: scale(1.1);
-    }
-
-    footer {
-      padding: 40px;
-      opacity: 0.6;
-      font-size: 14px;
-    }
+    .clickable-image{cursor:zoom-in;transition:transform .2s ease, border-color .2s ease, filter .2s ease}
+    .clickable-image:hover{transform:translateY(-2px) scale(1.015);border-color:rgba(255,255,255,.45);filter:brightness(1.08)}
+    .image-modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:28px;background:rgba(0,0,0,.88);backdrop-filter:blur(12px)}
+    .image-modal.is-open{display:flex}
+    .image-modal-card{position:relative;width:min(1120px,100%);max-height:90vh;border-radius:26px;background:rgba(18,18,18,.96);border:1px solid rgba(255,255,255,.16);box-shadow:0 30px 110px rgba(0,0,0,.8);padding:16px}
+    .image-modal-card img{width:100%;max-height:78vh;object-fit:contain;border-radius:18px;background:#050505}
+    .image-modal-caption{margin:12px 6px 0;color:var(--muted);font-size:.95rem}
+    .image-modal-close{position:absolute;top:12px;right:12px;width:44px;height:44px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(0,0,0,.68);color:#fff;font-size:28px;line-height:1;cursor:pointer;display:grid;place-items:center}
+    .image-modal-close:hover{background:#fff;color:#000}
+    body.modal-open{overflow:hidden}
+    @media (max-width:900px){.hero,.game-inner,.featured-inner{grid-template-columns:1fr}.hero{padding-top:54px}.nav-links{display:none}.game-inner{min-height:auto}.content{padding:26px}.shots{grid-template-columns:repeat(2,1fr)}.featured-copy{padding:4px}.feature-list{grid-template-columns:1fr}}
+    @media (max-width:560px){.page,.nav-inner{width:min(100% - 24px,1180px)}.stats{grid-template-columns:1fr}.shots,.shots.two{grid-template-columns:1fr 1fr}.content{padding:22px}.media{padding:12px}h1{font-size:3.35rem}}
   </style>
 </head>
-
 <body>
-
-  <header>
-    <img src="DeletedCookie_Logo_TEMP.png" alt="Deleted Cookie Logo">
-  </header>
-
-  <section id="about">
-    <h2>About Us</h2>
-    <p>
-      Deleted Cookie is an independent game studio creating simple
-      and engaging experiences.  
-      We focus on fun mechanics and memorable style.
-    </p>
-  </section>
-
-  <section id="games">
-    <h2>Our Games</h2>
-
-    <div class="games">
-
-        <!-- Garden sprites -->
-        <div class="game-card">
-            <h3>Garden sprites</h3>
-
-            <img src="games-promo/gardensprites.png" alt="Garden sprites Promo Image" class="promo">
-
-            <p>
-                Garden Sprites is a grid-based puzzle game where you guide enchanted stone animals to the goal.
-                Each animal follows its own unique movement rules, and solving a level means learning how to combine them through logic, blocking, and careful planning.
-            </p>
-
-            <div class="platforms">
-                <a href="https://apps.apple.com/us/app/garden-sprites/id6759647886" target="_blank">
-                    <img src="en-us.svg" alt="App store">
-                    <a href="https://play.google.com/store/apps/details?id=com.DeletedCookieAB.GardenSprites" target="_blank">
-                        <img src="google-play-badge.png" alt="Google Play">
-                        <a href="https://deletedcookieab.itch.io/garden-sprites" target="_blank">
-                            <img src="itch-badge.png" alt="Itch.io">
-                        </a>
-            </div>
-        </div>
-
-        <!-- COLORNUNDRUM -->
-        <div class="game-card">
-            <h3>ColorNundrum</h3>
-
-            <img src="games-promo/colornundrum.png" alt="colornundrum Image" class="promo">
-
-            <p>
-                Colornundrum is a fast-paced, time-based color puzzle game built for quick sessions and sharp thinking.
-                Your goal is to match the target pattern shown at the top of the screen by swiping colors across the grid. Each move matters, and speed is key.
-            </p>
-            
-            <div class="platforms">
-                <a href="https://play.google.com/store/apps/details?id=com.DeletedCookieAB.ColorNundrum" target="_blank">
-                    <img src="google-play-badge.png" alt="Google Play">
-                    <a href="https://deletedcookieab.itch.io/colornundrum" target="_blank">
-                        <img src="itch-badge.png" alt="Itch.io">
-                    </a>
-            </div>
-        </div>
-
-        <!-- Tiny space pirate -->
-        <div class="game-card">
-            <h3>Tiny space pirate</h3>
-
-            <img src="games-promo/tinyspacepirate.png" alt="Tiny Space Pirate Image" class="promo">
-
-            <p>
-                Tiny Space Pirate is a cozy adventure where you sail the stars, help quirky space locals, and uncover tiny stories across the galaxy. Upgrade your ship, complete charming quests, and explore a handcrafted universe full of oddballs, mysteries, and cosmic cats. It’s not about treasure it’s about who you meet along the way.
-            </p>
-
-            <div class="platforms">
-                <a href="https://store.steampowered.com/app/3921290/Tiny_space_pirate/" target="_blank">
-                    <img src="steam-badge.png" alt="Steam">
-                </a>
-            </div>
-        </div>
-
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top">Deleted Cookie <span>Games</span></a>
+      <div class="nav-links">
+        <a href="#garden-sprites">Garden Sprites</a>
+        <a href="#cargo-shuffler">Cargo Shuffler</a>
+        <a href="#space-racer">Space Racer</a>
+        <a href="#space-pirate">Space Pirate</a>
+        <a href="#pedro">Pedro</a>
+        <a href="#colornundrum">Colornundrum</a>
+      </div>
     </div>
-  </section>
+  </nav>
 
-  <footer>
-    © 2026 Deleted Cookie <br>
-An independent studio founded by Tobias Kärrman & Max Nafar
+  <main id="top" class="page">
+    <section class="hero">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Indie games for mobile, PC and cozy chaos</div>
+        <h1>Small games. Big personality.</h1>
+        <p class="lead">Deleted Cookie: from released puzzle games and cozy space adventures.</p>
+      </div>
+      <aside class="hero-card" aria-label="Featured game artwork">
+        <img src="images/image16.png" alt="Garden Sprites artwork" />
+        <div class="stats">
+          <div class="stat"><strong>6</strong><span>Games</span></div>
+          <div class="stat"><strong>3</strong><span>Platforms</span></div>
+          <div class="stat"><strong>∞</strong><span>Cozy ideas</span></div>
+        </div>
+      </aside>
+    </section>
+
+    <h2 class="section-title">Released & upcoming games</h2>
+    <section class="grid">
+      <article class="game" id="garden-sprites">
+        <div class="game-inner">
+          <div class="media">
+            <div class="hero-img"><img src="images/image16.png" alt="Garden Sprites key art"></div>
+            <div class="shots portrait two">
+              <img class="clickable-image" src="images/image9.png" alt="Garden Sprites screenshot one">
+              <img class="clickable-image" src="images/image17.png" alt="Garden Sprites screenshot two">
+            </div>
+          </div>
+          <div class="content">
+            <span class="tag">Released · Android / iOS</span>
+            <h2>Garden Sprites</h2>
+            <p>A grid-based puzzle game where you guide enchanted stone animals to the goal.</p>
+            <p>Each animal follows unique movement rules, and every level is about combining logic, blocking, and careful planning.</p>
+            <div class="buttons">
+              <a class="button primary" href="https://play.google.com/store/apps/details?id=com.DeletedCookieAB.GardenSprites">Android</a>
+              <a class="button" href="https://apps.apple.com/se/app/garden-sprites/id6759647886">iOS</a>
+              <a class="button" href="https://www.youtube.com/shorts/p5U-r09qTHM">Release trailer</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="game" id="cargo-shuffler">
+        <div class="game-inner">
+          <div class="media">
+            <div class="hero-img"><img src="images/image21.png" alt="Lasse’s Cargo Shuffler key art"></div>
+            <div class="shots">
+              <img class="clickable-image" src="images/image13.png" alt="Cargo Shuffler screenshot one">
+              <img class="clickable-image" src="images/image4.png" alt="Cargo Shuffler screenshot two">
+              <img class="clickable-image" src="images/image8.png" alt="Cargo Shuffler screenshot three">
+            </div>
+          </div>
+          <div class="content">
+              <span class="tag">Android · iOS coming soon</span>
+              <h2>Lasse’s Cargo Shuffler</h2>
+              <p>A charming puzzle game where players help Lasse organize his chaotic cargo storage.</p>
+              <p>Move crates, clear pathways, and rearrange obstacles to free specific cargo trapped in difficult positions.</p>
+              <div class="buttons">
+                  <a class="button primary" href="https://play.google.com/store/apps/details?id=com.DeletedCookie.LassesTinyCargoShuffler">Android</a>
+              </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="game" id="space-racer">
+        <div class="game-inner">
+          <div class="media">
+            <div class="hero-img"><img src="images/image7.png" alt="Tiny Space Racer key art"></div>
+            <div class="shots">
+              <img class="clickable-image" src="images/image12.png" alt="Tiny Space Racer screenshot one">
+              <img class="clickable-image" src="images/image10.png" alt="Tiny Space Racer screenshot two">
+              <img class="clickable-image" src="images/image15.png" alt="Tiny Space Racer screenshot three">
+            </div>
+          </div>
+          <div class="content">
+              <span class="tag">Android · iOS coming soon</span>
+              <h2>Tiny Space Racer</h2>
+              <p>A fast-paced arcade racing game where players pilot tiny spacecraft across handcrafted cosmic tracks.</p>
+              <p>Beat your best times, master challenging turns, and unlock new ships with unique styles and handling.</p>
+              <div class="buttons">
+                  <a class="button primary" href="https://play.google.com/store/apps/details?id=com.DeletedCookie.TinySpaceRacer">Android</a>
+              </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="game" id="space-pirate">
+        <div class="game-inner">
+          <div class="media">
+            <div class="hero-img"><img src="images/image20.png" alt="Tiny Space Pirate key art"></div>
+            <div class="shots two">
+              <img class="clickable-image" src="images/image1.png" alt="Tiny Space Pirate screenshot one">
+              <img class="clickable-image" src="images/image3.png" alt="Tiny Space Pirate screenshot two">
+            </div>
+          </div>
+          <div class="content">
+            <span class="tag">Steam · Windows / Mac</span>
+            <h2>Tiny Space Pirate</h2>
+            <p>A cozy space adventure where you sail the stars, help quirky locals, and uncover small stories across the galaxy.</p>
+            <p>Upgrade your ship, complete charming quests, and explore a handcrafted universe full of oddballs and mysteries.</p>
+            <p>It’s not about treasure. It’s about who you meet along the way.</p>
+            <div class="buttons">
+              <a class="button primary" href="https://store.steampowered.com/app/3921290/Tiny_space_pirate/">Steam</a>
+              <a class="button" href="https://www.youtube.com/watch?v=DkP04DcrGJI">Release trailer</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="game" id="pedro">
+        <div class="game-inner">
+          <div class="media">
+            <div class="hero-img"><img src="images/image11.png" alt="Pedro's Disco Journey key art"></div>
+            <div class="shots portrait two">
+              <img class="clickable-image" src="images/image6.png" alt="Pedro's Disco Journey screenshot one">
+              <img class="clickable-image" src="images/image19.png" alt="Pedro's Disco Journey screenshot two">
+            </div>
+          </div>
+          <div class="content">
+            <span class="tag">Coming soon · Android / iOS</span>
+            <h2>Pedro's Disco Journey</h2>
+            <p>Help Pedro escape the gritty alley by jumping higher and higher on glowing disco balls.</p>
+            <p>Climb through changing biomes, master your timing, and reach the legendary Disco Heaven far above the clouds.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="game" id="colornundrum">
+        <div class="game-inner">
+          <div class="media">
+            <div class="hero-img"><img src="images/image5.png" alt="Colornundrum key art"></div>
+            <div class="shots portrait">
+              <img class="clickable-image" src="images/image18.png" alt="Colornundrum screenshot one">
+              <img class="clickable-image" src="images/image14.png" alt="Colornundrum screenshot two">
+              <img class="clickable-image" src="images/image2.png" alt="Colornundrum screenshot three">
+            </div>
+          </div>
+          <div class="content">
+            <span class="tag">Android · iOS coming soon</span>
+            <h2>Colornundrum</h2>
+            <p>A fast-paced, time-based color puzzle game built for quick sessions and sharp thinking.</p>
+            <p>Match the target pattern at the top of the screen by swiping colors across the grid. Each move matters, and speed is key.</p>
+            <div class="buttons">
+              <a class="button primary" href="https://play.google.com/store/apps/details?id=com.DeletedCookieAB.ColorNundrum&hl=en">Android</a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="page">Deleted Cookie · Games</div>
   </footer>
+
+
+  <div class="image-modal" id="imageModal" aria-hidden="true" role="dialog" aria-label="Large image preview">
+    <div class="image-modal-card" role="document">
+      <button class="image-modal-close" type="button" aria-label="Close image preview">&times;</button>
+      <img id="imageModalImg" src="" alt="">
+      <p class="image-modal-caption" id="imageModalCaption"></p>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('imageModalImg');
+    const modalCaption = document.getElementById('imageModalCaption');
+    const closeModalButton = modal.querySelector('.image-modal-close');
+
+    function openImageModal(image) {
+      modalImg.src = image.src;
+      modalImg.alt = image.alt || 'Large image preview';
+      modalCaption.textContent = image.alt || '';
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+      closeModalButton.focus();
+    }
+
+    function closeImageModal() {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
+      modalImg.src = '';
+      modalCaption.textContent = '';
+    }
+
+    document.querySelectorAll('.clickable-image').forEach((image) => {
+      image.setAttribute('tabindex', '0');
+      image.setAttribute('role', 'button');
+      image.setAttribute('aria-label', `Open larger preview: ${image.alt || 'image'}`);
+      image.addEventListener('click', () => openImageModal(image));
+      image.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openImageModal(image);
+        }
+      });
+    });
+
+    closeModalButton.addEventListener('click', closeImageModal);
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) closeImageModal();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && modal.classList.contains('is-open')) closeImageModal();
+    });
+  </script>
 
 </body>
 </html>
