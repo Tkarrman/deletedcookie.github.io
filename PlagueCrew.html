@@ -161,6 +161,10 @@
       }
     }
     .mile { display: grid; grid-template-columns: 180px 1fr; gap: 20px; padding: 22px; border: 1px solid var(--line); border-radius: 22px; background: rgba(255,255,255,.035); }
+    .timeline .milestone-row { grid-template-columns: 260px minmax(0, 1fr); }
+    @media (max-width: 760px) {
+      .timeline .milestone-row { grid-template-columns: 1fr; }
+    }
     .date { color: var(--accent-2); font-weight: 900; }
 
     .path-tags {
@@ -523,7 +527,7 @@
     <section id="production">
       <div class="section-head"><div><span class="tag">Production</span><h2>Current state and release paths</h2></div></div>
       <div class="grid-3">
-        <div class="card"><h3>Current State — July 2026</h3><p>Concept Trailer created, Game loop implemented</p></div>
+        <div class="card"><h3>Current State — September 2026</h3><p>A playable build is in internal friends-and-family testing. The core game loop is implemented, and feedback is shaping the public reveal and next test builds.</p></div>
         <div class="card"><h3>Current Features</h3><ul><li>Photon Fusion networking</li><li>Proximity voice chat</li><li>Interaction system</li><li>Inventory & crafting</li><li>Basic combat</li><li>Multiplayer synchronization</li></ul></div>
         <div class="card"><h3>Current Focus</h3><ul><li>Villager art</li><li>Horror/comedy tone</li><li>Animation style</li><li>Gameplay feel</li><li>Co-op chaos & replayability</li></ul></div>
       </div>
@@ -531,8 +535,8 @@
 
     <section>
       <div class="grid-2">
-        <div class="card strategy"><h3>Strategy 1 — Self-Publishing / Demo / Early Access</h3><p><b>Target release:</b> October 31, 2026<br><b>Budget:</b> €60,000</p><p>Release an Demo for Steam next fest focused on the core gameplay loop while building community hype, wishlists, and player feedback. And then release a Early accsess build</p></div>
-        <div class="card strategy alt"><h3>Strategy 2 — Publisher Partner / Full 1.0</h3><p><b>Target release:</b> May 31, 2027<br><b>Budget:</b> €200,000</p><p>With external funding, expand toward a full 1.0 release with more content, polish, progression, villages, enemies, events, and replayability systems.</p></div>
+        <div class="card strategy"><h3>Strategy 1 — Self-Publishing / Demo / Early Access</h3><p><b>Early Access target:</b> March 2027<br><b>Budget:</b> €60,000</p><p>Reveal in late September, run a closed public playtest in October, then open demo testing from December through January. Bring the improved demo to Steam Next Fest in February before the March Early Access launch.</p></div>
+        <div class="card strategy alt"><h3>Strategy 2 — Publisher Partner / Full 1.0</h3><p><b>1.0 target:</b> July 2027<br><b>Budget:</b> €200,000</p><p>With external funding, build on the testing and Early Access roadmap to expand content, progression, villages, enemies, events, and polish for the July full release.</p></div>
       </div>
     </section>
 
@@ -543,127 +547,91 @@
       </div>
 
       <div class="timeline">
-        <a href="PlagueCrew_Milestones.html#vertical-slice" class="mile milestone-row" style="text-decoration:none;">
+        <a href="PlagueCrew_Milestones.html#friends-family-playtest" class="mile milestone-row" style="text-decoration:none;">
           <div class="mile-meta">
-            <div class="date">Jun 30, 2026</div>
+            <div class="date">Sep 2026 · Now</div>
             <span class="tag">Milestone 1</span>
-            <div class="path-tags">
-              <span class="path-tag self">Self-Publishing</span>
-              <span class="path-tag publisher">Publisher Partner</span>
-            </div>
           </div>
-
           <div class="mile-content">
-            <h3>Vertical Slice</h3>
-            <p class="muted">First playable showcase proving the core gameplay loop, treatment systems, multiplayer chaos, and overall tone.</p>
+            <h3>Playable Build &amp; Friends-and-Family Playtest</h3>
+            <p class="muted">A playable build is being tested internally with friends and family to check the core co-op loop and identify the biggest issues.</p>
           </div>
         </a>
 
-        <a href="PlagueCrew_Milestones.html#steam-presence" class="mile milestone-row" style="text-decoration:none;">
+        <a href="PlagueCrew_Milestones.html#reveal" class="mile milestone-row" style="text-decoration:none;">
           <div class="mile-meta">
-            <div class="date">Aug 31, 2026</div>
+            <div class="date">Late Sep 2026</div>
             <span class="tag">Milestone 2</span>
-            <div class="path-tags">
-              <span class="path-tag self">Self-Publishing</span>
-              <span class="path-tag publisher">Publisher Partner</span>
-            </div>
           </div>
-
           <div class="mile-content">
-            <h3>Steam Presence</h3>
-            <p class="muted">Steam page, trailer, wishlist campaign, creator outreach, and community playtests.</p>
+            <h3>Public Reveal</h3>
+            <p class="muted">Reveal Plague Crew at the end of September with a clear pitch, gameplay footage, and a place for interested players to follow the game.</p>
           </div>
         </a>
 
-        <a href="PlagueCrew_Milestones.html#content-expansion" class="mile milestone-row" style="text-decoration:none;">
+        <a href="PlagueCrew_Milestones.html#closed-public-playtest" class="mile milestone-row" style="text-decoration:none;">
           <div class="mile-meta">
-            <div class="date">Sep 30, 2026</div>
+            <div class="date">Oct 2026</div>
             <span class="tag">Milestone 3</span>
-            <div class="path-tags">
-              <span class="path-tag self">Self-Publishing</span>
-              <span class="path-tag publisher">Publisher Partner</span>
-            </div>
           </div>
-
           <div class="mile-content">
-            <h3>Content Expansion</h3>
-            <p class="muted">Replayability, village generation, events, monsters, progression, and larger testing.</p>
+            <h3>Closed Public Playtest</h3>
+            <p class="muted">Invite a limited group of players outside the team to test the game and provide structured feedback.</p>
+          </div>
+        </a>
+
+        <a href="PlagueCrew_Milestones.html#open-demo-testing" class="mile milestone-row" style="text-decoration:none;">
+          <div class="mile-meta">
+            <div class="date">Dec 2026–Jan 2027</div>
+            <span class="tag">Milestone 4</span>
+          </div>
+          <div class="mile-content">
+            <h3>Open Demo Testing</h3>
+            <p class="muted">Make the demo available for open testing through December and January, then use player feedback to improve it.</p>
+          </div>
+        </a>
+
+        <a href="PlagueCrew_Milestones.html#steam-next-fest" class="mile milestone-row" style="text-decoration:none;">
+          <div class="mile-meta">
+            <div class="date">Feb 2027</div>
+            <span class="tag">Milestone 5</span>
+          </div>
+          <div class="mile-content">
+            <h3>Steam Next Fest</h3>
+            <p class="muted">Show the refined demo during the planned February Steam Next Fest window and turn interest into wishlists and community growth.</p>
           </div>
         </a>
 
         <a href="PlagueCrew_Milestones.html#early-access-release" class="mile milestone-row" style="text-decoration:none;">
           <div class="mile-meta">
-            <div class="date">Oct 30, 2026</div>
-            <span class="tag">Milestone 4</span>
-            <div class="path-tags">
-              <span class="path-tag self">Self-Publishing</span>
-              <span class="path-tag decision">Publisher Decision</span>
-            </div>
-          </div>
-
-          <div class="mile-content">
-              <h3>Demo / Early Access Release / Publisher Decision</h3>
-            <p class="muted">Self-publishing release point. With a publisher partner, this becomes the shift into the larger 1.0 production roadmap.</p>
-          </div>
-        </a>
-
-        <a href="PlagueCrew_Milestones.html#production-expansion" class="mile milestone-row" style="text-decoration:none;">
-          <div class="mile-meta">
-            <div class="date">Nov 30, 2026</div>
-            <span class="tag">Milestone 5</span>
-            <div class="path-tags">
-              <span class="path-tag publisher">Publisher Partner</span>
-            </div>
-          </div>
-
-          <div class="mile-content">
-            <h3>Production Expansion</h3>
-            <p class="muted">Pipeline improvements, larger systems, village generation, treatments, and stability.</p>
-          </div>
-        </a>
-
-        <a href="PlagueCrew_Milestones.html#systems-progression-expansion" class="mile milestone-row" style="text-decoration:none;">
-          <div class="mile-meta">
-            <div class="date">Jan 31, 2027</div>
+            <div class="date">Mar 2027</div>
             <span class="tag">Milestone 6</span>
-            <div class="path-tags">
-              <span class="path-tag publisher">Publisher Partner</span>
-            </div>
           </div>
-
           <div class="mile-content">
-            <h3>Systems & Progression Expansion</h3>
-            <p class="muted">Hub upgrades, tools, crafting, co-op synergy, regions, and environmental effects.</p>
+            <h3>Early Access Release</h3>
+            <p class="muted">Launch Plague Crew in Early Access with a stable core experience and a clear plan for updates toward 1.0.</p>
           </div>
         </a>
 
-        <a href="PlagueCrew_Milestones.html#content-chaos-phase" class="mile milestone-row" style="text-decoration:none;">
+        <a href="PlagueCrew_Milestones.html#one-point-zero-development" class="mile milestone-row" style="text-decoration:none;">
           <div class="mile-meta">
-            <div class="date">Mar 31, 2027</div>
+            <div class="date">Apr–Jun 2027</div>
             <span class="tag">Milestone 7</span>
-            <div class="path-tags">
-              <span class="path-tag publisher">Publisher Partner</span>
-            </div>
           </div>
-
           <div class="mile-content">
-            <h3>Content & Chaos Phase</h3>
-            <p class="muted">Advanced outbreaks, village panic, monsters, rare events, AI, and streamer chaos.</p>
+            <h3>Early Access Updates &amp; 1.0 Preparation</h3>
+            <p class="muted">Use the months after Early Access to improve the game, expand content, and prepare the full release.</p>
           </div>
         </a>
 
-        <a href="PlagueCrew_Milestones.html#gold-master-1-0-prep" class="mile milestone-row" style="text-decoration:none;">
+        <a href="PlagueCrew_Milestones.html#full-release" class="mile milestone-row" style="text-decoration:none;">
           <div class="mile-meta">
-            <div class="date">May 31, 2027</div>
+            <div class="date">Jul 2027</div>
             <span class="tag">Milestone 8</span>
-            <div class="path-tags">
-              <span class="path-tag publisher">Publisher Partner</span>
-            </div>
           </div>
-
           <div class="mile-content">
-            <h3>Gold Master & 1.0 Prep</h3>
-            <p class="muted">Performance, accessibility, tutorials, final balancing, polish, press, and launch campaign.</p>
+            <h3>1.0 Full Release</h3>
+            <p class="muted">Launch the complete 1.0 version in July with the final content, polish, and release campaign.</p>
           </div>
         </a>
       </div>
