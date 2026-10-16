@@ -76,6 +76,8 @@
     }
     .hero-card { padding: 18px; transform: rotate(1deg); }
     .hero-card img, .image-card img { border-radius: 18px; width: 100%; }
+    .video-card { aspect-ratio: 16 / 9; }
+    .video-card iframe { width: 100%; height: 100%; display: block; border: 0; }
 
     .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 32px; }
     .stat { padding: 18px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.04); }
@@ -303,6 +305,42 @@
     .contact-card:hover .contact-button {
         transform: translateX(4px);
     }
+
+    .social-links {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .social-link {
+        display: flex;
+        min-height: 104px;
+        padding: 20px;
+        align-items: flex-end;
+        text-decoration: none;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: rgba(255,255,255,.035);
+        color: var(--text);
+        font-size: 18px;
+        font-weight: 800;
+        transition: .2s ease;
+    }
+
+    .social-link:hover {
+        transform: translateY(-3px);
+        color: var(--accent);
+        border-color: rgba(167,199,107,.28);
+        background: rgba(167,199,107,.08);
+    }
+
+    @media (max-width: 900px) {
+        .social-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 560px) {
+        .social-links { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -310,7 +348,7 @@
     <div class="nav-inner">
       <div class="brand">Deleted Cookie · Plague Crew</div>
       <div class="nav-links">
-        <a href="#game">Game</a><a href="#market">Market</a><a href="#production">Production</a><a href="#team">Team</a>
+        <a href="#game">Game</a><a href="#market">Market</a><a href="#production">Production</a><a href="#team">Team</a><a href="#links">Links</a>
       </div>
     </div>
   </nav>
@@ -343,7 +381,7 @@
 
     <section>
       <div class="grid-2">
-        <div class="image-card"><iframe width="560" height="315" src="https://www.youtube.com/embed/dBw-X6jgbcA?si=cWO1LMqJ_nmYBxPI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+        <div class="image-card video-card"><iframe src="https://www.youtube.com/embed/ZMJeyH0P6xk" title="Plague Crew trailer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
         <div class="card">
           <span class="tag">World</span>
           <h2>Infected villages as chaotic playgrounds</h2>
@@ -663,6 +701,22 @@
                     <div class="member"><b>Harald Af Malmborg</b><small>SFX / Music</small><p>SteamWorld Heist 2, Lost in Random, Lost in Random: Eternal Die, Islanders: New Shores</p></div>
                 </div>
     </section>
+      <section id="links">
+          <div class="section-head">
+              <div>
+                  <span class="tag">Deleted Cookie</span>
+                  <h2>Follow the game and studio</h2>
+              </div>
+              <p>Wishlist Plague Crew, follow development, and join the community.</p>
+          </div>
+          <div class="social-links">
+              <a class="social-link" href="https://store.steampowered.com/app/4767630/" target="_blank" rel="noopener noreferrer">Steam</a>
+              <a class="social-link" href="https://www.instagram.com/deletedcookiegames" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a class="social-link" href="https://www.tiktok.com/@deletedcookie" target="_blank" rel="noopener noreferrer">TikTok</a>
+              <a class="social-link" href="https://www.youtube.com/@DeletedCookieAb" target="_blank" rel="noopener noreferrer">YouTube</a>
+              <a class="social-link" href="https://discord.gg/36nGcKFDz" target="_blank" rel="noopener noreferrer">Discord</a>
+          </div>
+      </section>
       <section id="contact">
           <div class="section-head">
               <div>
