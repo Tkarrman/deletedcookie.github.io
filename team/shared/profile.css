@@ -85,6 +85,18 @@ h2 { margin-bottom: 12px; font-size: clamp(2.7rem, 6vw, 5.7rem); line-height: .9
 .expertise:nth-child(4) { background: #dbe2ff; }
 .expertise h3 { margin-bottom: 18px; font-size: 1.35rem; line-height: 1.1; }
 .expertise ul { margin: 0; padding-left: 18px; color: #444239; }
+.mobile-feature { display: grid; grid-template-columns: .8fr 1.2fr; gap: 18px; }
+.mobile-stack { background: var(--ink); color: white; }
+.mobile-stack h3 { margin-bottom: 20px; font-size: clamp(2rem, 4vw, 3.4rem); line-height: .95; letter-spacing: -.055em; }
+.mobile-stack p { color: #c9c9c1; }
+.mobile-tech { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; margin-top: 26px; }
+.mobile-tech div { padding: 15px 12px; border: 1px solid rgba(255,255,255,.28); border-radius: 18px; }
+.mobile-tech strong { display: block; color: var(--acid); font-size: .78rem; text-transform: uppercase; letter-spacing: .07em; }
+.mobile-tech span { font-size: .9rem; }
+.mobile-products { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.mobile-product { padding: 22px; border: 1.5px solid var(--ink); border-radius: 22px; background: var(--paper-strong); }
+.mobile-product h3 { margin-bottom: 8px; font-size: 1.15rem; letter-spacing: -.025em; }
+.mobile-product p { margin: 0; color: var(--muted); font-size: .9rem; }
 .projects { display: grid; gap: 18px; }
 .project { position: relative; display: grid; grid-template-columns: .95fr 1.05fr; min-height: 430px; overflow: hidden; border: 1.5px solid var(--ink); border-radius: var(--radius); background: var(--ink); color: white; }
 .project-media { overflow: hidden; }
@@ -116,7 +128,7 @@ h2 { margin-bottom: 12px; font-size: clamp(2.7rem, 6vw, 5.7rem); line-height: .9
 
 @media (max-width: 860px) {
   .nav-links a:not(.nav-cta) { display: none; }
-  .hero, .about-grid, .project, .contact-inner { grid-template-columns: 1fr; }
+  .hero, .about-grid, .project, .contact-inner, .mobile-feature { grid-template-columns: 1fr; }
   .hero { padding-top: 42px; }
   .crumb { margin-bottom: 28px; }
   .portrait-wrap { max-width: 520px; }
@@ -129,7 +141,7 @@ h2 { margin-bottom: 12px; font-size: clamp(2.7rem, 6vw, 5.7rem); line-height: .9
   .brand { font-size: .86rem; }
   .nav-cta { min-height: 40px; padding: 0 13px; font-size: .78rem; }
   h1 { font-size: clamp(3.4rem, 18vw, 5rem); }
-  .quick-stats, .expertise-grid { grid-template-columns: 1fr; }
+  .quick-stats, .expertise-grid, .mobile-products, .mobile-tech { grid-template-columns: 1fr; }
   .section-head, .timeline-item { grid-template-columns: 1fr; gap: 8px; }
   .section { padding-bottom: 68px; }
   .quick-stats { margin-bottom: 68px; }
