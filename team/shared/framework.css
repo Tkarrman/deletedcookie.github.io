@@ -93,6 +93,13 @@
   border-width: 7px;
 }
 
+.profile-hero img.portrait-placeholder {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
 .profile-hero .petal {
   width: 16px;
   height: 44px;

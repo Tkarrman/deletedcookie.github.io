@@ -8,24 +8,140 @@
   <link rel="stylesheet" href="../shared/portfolio.css">
   <link rel="stylesheet" href="../shared/framework.css">
 </head>
-<body>
+<body class="compact-portfolio">
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header shell">
     <a class="wordmark" href="../"><img class="brand-logo" src="../shared/image/DeletedCookieLogo.png" alt="Deleted Cookie"></a>
-    <nav aria-label="Main navigation"><a href="../">Team</a><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+    <nav aria-label="Main navigation"><a href="../">Team</a><a href="#contact">Contact</a></nav>
   </header>
   <main class="shell" id="main">
-    <section class="hero" id="top" aria-labelledby="name">
-      <div><p class="eyebrow">Portfolio</p><h1 id="name">Tobias<br>Kärrman</h1><!-- Add approved role and introduction here. --></div>
-      <div class="portrait-area"><div class="portrait-placeholder" role="img" aria-label="Portrait placeholder"><span class="placeholder-icon" aria-hidden="true">＋</span></div><span class="petal petal-one" aria-hidden="true"></span><span class="petal petal-two" aria-hidden="true"></span></div>
+    <section class="hero profile-hero" id="top" aria-labelledby="name">
+      <div class="portrait-area"><img class="portrait-placeholder" src="../../assets/team/tobias/portrait.png" alt="Tobias Kärrman" style="width: 100%; object-fit: cover;"><span class="petal petal-one" aria-hidden="true"></span><span class="petal petal-two" aria-hidden="true"></span></div>
+      <div class="profile-intro">
+        <h1 id="name">Tobias Kärrman</h1>
+        <p class="profile-title">Technical Director &amp; Game Developer</p>
+        <p class="profile-summary">I love making games and figuring out what makes them feel alive. I’ve worked with Unity and C# since 2012, shipping games on mobile, PC, and consoles. My favourite part is seeing simple rules create surprising behaviours and building tools that help the team try out ideas.</p>
+        <ul class="profile-links" aria-label="Profile links">
+          <li><a href="mailto:tkarrman@gmail.com"><span aria-hidden="true">✉</span> Email</a></li>
+        </ul>
+      </div>
     </section>
-    <section class="section" id="work" aria-labelledby="work-title"><div class="section-heading"><h2 id="work-title">Selected work</h2></div>
-      <!-- Replace empty project areas with approved work. -->
-      <div class="project-grid"><div class="image-placeholder blue" role="img" aria-label="Project image placeholder"></div><div class="image-placeholder pink" role="img" aria-label="Project image placeholder"></div></div>
+    <section class="section framework-panel" id="experience" aria-labelledby="experience-title">
+      <h2 id="experience-title">Work Experience</h2>
+      <article class="experience-entry">
+        <header class="experience-header">
+          <h3>Technical Director <span class="experience-company">· Thunderful / The Station</span></h3>
+          <p class="experience-year">2020–2025</p>
+        </header>
+        <p class="experience-summary">I led technical work on SteamWorld Build and ISLANDERS: New Shores, both developed in Unity for PC, PlayStation, Xbox, and Nintendo Switch.</p>
+        <ul class="experience-work">
+          <li>Built agent and enemy behaviours for the city and mines in SteamWorld Build. I worked on the simplified action-planning system and the behaviours that used it to choose what to do in each situation.</li>
+          <li>Built tools for Design and Art and helped establish workflows for asset creation, importing, and in-game configuration. One example let designers configure data in Google Sheets and import it directly into the game.</li>
+          <li>Worked with Programming, Design, Art, QA, production, and management to spot technical problems early. I coordinated with QA and helped turn creative goals into practical technical solutions.</li>
+          <li>Coordinated with the external studio that ported SteamWorld Build to Nintendo Switch. We tested on development hardware throughout production and set performance budgets for lower-spec platforms.</li>
+        </ul>
+      </article>
+      <article class="experience-entry">
+        <header class="experience-header">
+          <h3>Programmer <span class="experience-company">· The Station</span></h3>
+          <p class="experience-year">2019–2020</p>
+        </header>
+        <p class="experience-summary">Worked in Unity and C# on an unannounced project.</p>
+      </article>
+      <article class="experience-entry">
+        <header class="experience-header">
+          <h3>Co-founder <span class="experience-company">· Prasius Entertainment</span></h3>
+          <p class="experience-year">2015–2019</p>
+        </header>
+        <p class="experience-summary">We took on client work alongside our own games and co-developed Bloody Trapland 2.</p>
+        <ul class="experience-work">
+          <li>Bloody Trapland 2 · PC · Co-development and programming</li>
+          <li>TNT Kart · Mobile · Programming</li>
+        </ul>
+      </article>
+      <article class="experience-entry">
+        <header class="experience-header">
+          <h3>Co-founder <span class="experience-company">· Number Twentyfive Entertainment</span></h3>
+          <p class="experience-year">2012–2015</p>
+        </header>
+        <p class="experience-summary">I started my first studio after winning the Game Concept Challenge in Karlshamn. We designed and developed mobile games.</p>
+        <ul class="experience-work">
+          <li>StarCaptain · Mobile · Programming and design</li>
+          <li>Pond · Mobile · Programming and design</li>
+          <li>Dragon Steve · Mobile · Programming and design</li>
+          <li>External Guidance · Mobile · XNA and C#</li>
+        </ul>
+      </article>
     </section>
-    <section class="section framework-panel" id="about" aria-labelledby="about-title"><h2 id="about-title">About</h2><!-- Add approved biography here. --><div class="empty-area" aria-hidden="true"></div></section>
-    <section class="section framework-panel" id="experience" aria-labelledby="experience-title"><h2 id="experience-title">Experience</h2><!-- Add approved experience here. --><div class="empty-area" aria-hidden="true"></div></section>
-    <section class="section contact" id="contact" aria-labelledby="contact-title"><div><h2 id="contact-title">Contact</h2><!-- Add approved contact links here. --><div class="empty-area compact" aria-hidden="true"></div></div></section>
+    <section class="section framework-panel" aria-labelledby="titles-heading">
+      <h2 id="titles-heading">Titles Worked On</h2>
+      <ul class="title-cards" aria-labelledby="titles-heading">
+        <li class="title-card">
+          <img src="../shared/image/TNTKart.jpg" alt="" loading="lazy">
+          <h3>TNT Kart</h3>
+          <p>Mobile · Programming</p>
+          <p><a href="https://www.youtube.com/watch?v=mOhGVk87tsM" aria-label="TNT Kart on YouTube">View on YouTube ↗</a></p>
+        </li>
+        <li class="title-card">
+          <img src="../shared/image/BloodyTrapland2.jpg" alt="" loading="lazy">
+          <h3>Bloody Trapland 2</h3>
+          <p>PC · Co-development and programming</p>
+          <p><a href="https://store.steampowered.com/app/579840/Bloody_Trapland_2_Curiosity/" aria-label="Bloody Trapland 2 on Steam">View on Steam ↗</a></p>
+        </li>
+        <li class="title-card">
+          <img src="../shared/image/SteamworldBuild.jpg" alt="" loading="lazy">
+          <h3>SteamWorld Build</h3>
+          <p>PC / PlayStation / Xbox / Switch · Behaviour AI and technical direction</p>
+          <p><a href="https://store.steampowered.com/app/2134770/SteamWorld_Build/" aria-label="SteamWorld Build on Steam">View on Steam ↗</a></p>
+        </li>
+        <li class="title-card">
+          <img src="../shared/image/Islander.jpg" alt="" loading="lazy">
+          <h3>ISLANDERS: New Shores</h3>
+          <p>PC / PlayStation / Xbox / Switch · Technical direction</p>
+          <p><a href="https://store.steampowered.com/app/2368930/ISLANDERS_New_Shores/" aria-label="ISLANDERS: New Shores on Steam">View on Steam ↗</a></p>
+        </li>
+      </ul>
+    </section>
+    <section class="section framework-panel" id="education" aria-labelledby="education-title">
+      <h2 id="education-title">Education</h2>
+      <article class="experience-entry">
+        <header class="experience-header">
+          <h3>Digital Games <span class="experience-company">· Blekinge Institute of Technology</span></h3>
+          <p class="experience-year">2009–2013</p>
+        </header>
+        <p class="experience-summary">Bachelor’s degree in Media Technology · Karlshamn</p>
+      </article>
+      <article class="experience-entry">
+        <header class="experience-header">
+          <h3>Upper secondary education <span class="experience-company">· Universitetsholmen gymnasium</span></h3>
+          <p class="experience-year">2005–2008</p>
+        </header>
+        <p class="experience-summary">Malmö</p>
+      </article>
+    </section>
+    <div class="section portfolio-details">
+      <section class="framework-panel" aria-labelledby="additional-title">
+        <h2 id="additional-title">Additional Experience</h2>
+        <p>Winner of the Game Concept Challenge (GCC) in Karlshamn.</p>
+      </section>
+      <section class="framework-panel" aria-labelledby="tools-title">
+        <h2 id="tools-title">Tools &amp; Software</h2>
+        <ul class="experience-work">
+          <li>Unity</li>
+          <li>C# / .NET</li>
+          <li>Java</li>
+          <li>Objective-C</li>
+          <li>XNA</li>
+          <li>Google Sheets</li>
+        </ul>
+      </section>
+    </div>
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div>
+        <h2 id="contact-title">Contact</h2>
+        <p><a href="mailto:tkarrman@gmail.com">tkarrman@gmail.com</a><br>Karlshamn, Sweden</p>
+      </div>
+    </section>
   </main>
   <footer class="shell"><span>Tobias Kärrman</span><a href="#top">Back to top ↑</a></footer>
 </body>

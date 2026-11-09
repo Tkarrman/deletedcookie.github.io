@@ -8,24 +8,125 @@
   <link rel="stylesheet" href="../shared/portfolio.css">
   <link rel="stylesheet" href="../shared/framework.css">
 </head>
-<body>
+<body class="compact-portfolio">
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header shell">
     <a class="wordmark" href="../"><img class="brand-logo" src="../shared/image/DeletedCookieLogo.png" alt="Deleted Cookie"></a>
-    <nav aria-label="Main navigation"><a href="../">Team</a><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+    <nav aria-label="Main navigation"><a href="../">Team</a><a href="#contact">Contact</a></nav>
   </header>
   <main class="shell" id="main">
-    <section class="hero" id="top" aria-labelledby="name">
-      <div><p class="eyebrow">Portfolio</p><h1 id="name">Max<br>Nafar</h1><!-- Add approved role and introduction here. --></div>
-      <div class="portrait-area"><div class="portrait-placeholder" role="img" aria-label="Portrait placeholder"><span class="placeholder-icon" aria-hidden="true">＋</span></div><span class="petal petal-one" aria-hidden="true"></span><span class="petal petal-two" aria-hidden="true"></span></div>
+    <section class="hero profile-hero" id="top" aria-labelledby="name">
+      <div class="portrait-area"><img class="portrait-placeholder" src="portrait.png" alt="Max Nafar" width="382" height="382" style="width: 100%; height: auto; object-fit: cover;"><span class="petal petal-one" aria-hidden="true"></span><span class="petal petal-two" aria-hidden="true"></span></div>
+      <div class="profile-intro">
+        <h1 id="name">Max Nafar</h1>
+        <p class="profile-title">Concept Artist</p>
+        <p class="profile-summary">Karlshamn, Sweden</p>
+        <ul class="profile-links" aria-label="Profile links">
+          <li><a href="mailto:max@deletedcookie.se"><span aria-hidden="true">✉</span> Email</a></li>
+          <li><a href="https://www.artstation.com/-max_nafar"><span aria-hidden="true">◇</span> ArtStation</a></li>
+        </ul>
+      </div>
     </section>
-    <section class="section" id="work" aria-labelledby="work-title"><div class="section-heading"><h2 id="work-title">Selected work</h2></div>
-      <!-- Replace empty project areas with approved work. -->
-      <div class="project-grid"><div class="image-placeholder blue" role="img" aria-label="Project image placeholder"></div><div class="image-placeholder pink" role="img" aria-label="Project image placeholder"></div></div>
+    <section class="section framework-panel" id="experience" aria-labelledby="experience-title">
+      <h2 id="experience-title">Work Experience</h2>
+      <article class="experience-entry">
+        <h3>Play'n GO</h3>
+        <p>Worked on 2 not yet revealed casino games as a 2D artist doing concept art, polishing, UI, logos and animation prep.</p>
+      </article>
+      <article class="experience-entry">
+        <h3>The Station <span class="experience-company">(A thunderful Studio)</span></h3>
+        <h4>Steamworld Build</h4>
+        <p class="experience-summary">A resource management and dungeon crawler game</p>
+        <p>I worked on Steamworld Build for almost a total of 2 years as a 2D artist doing everything from concept art (environments/characters/props/effects) to UI (icons/backgrounds) to key art (rendering).</p>
+        <h4>Headhunter</h4>
+        <p class="experience-summary">A co-op shooter game (under development)</p>
+        <p>During my time at the Station I worked for a few months with the Thunderful team developing headhunter. Here I got a chance to do concept art for environments, props and cosmetics.</p>
+      </article>
+      <article class="experience-entry">
+        <h3>A Journey Through Valhalla</h3>
+        <p class="experience-summary">Team Sämst is an indie company based in Stockholm.</p>
+        <p>I was tasked with creating a Key Art to be used as both concept- and promotional art in time to be used at the Swedish Game Awards.</p>
+        <p><a href="https://valhalla-game.com/about.html">Link to game and art ↗</a></p>
+      </article>
+      <article class="experience-entry">
+        <h3>Troax</h3>
+        <p class="experience-summary">Troax is an international company that specializes in machine protection.</p>
+        <p>As a freelance artist for Troax I did various illustrations for the company blog and social media marketing, featuring a robotic mascot I also designed for them.</p>
+        <p><a href="https://www.instagram.com/p/B8bR4bFJf1_/">View the post ↗</a></p>
+      </article>
     </section>
-    <section class="section framework-panel" id="about" aria-labelledby="about-title"><h2 id="about-title">About</h2><!-- Add approved biography here. --><div class="empty-area" aria-hidden="true"></div></section>
-    <section class="section framework-panel" id="experience" aria-labelledby="experience-title"><h2 id="experience-title">Experience</h2><!-- Add approved experience here. --><div class="empty-area" aria-hidden="true"></div></section>
-    <section class="section contact" id="contact" aria-labelledby="contact-title"><div><h2 id="contact-title">Contact</h2><!-- Add approved contact links here. --><div class="empty-area compact" aria-hidden="true"></div></div></section>
+    <section class="section framework-panel" aria-labelledby="titles-heading">
+      <h2 id="titles-heading">Titles Worked On</h2>
+      <ul class="title-cards" aria-labelledby="titles-heading">
+        <li class="title-card">
+          <img src="../shared/image/SteamworldBuild.jpg" alt="" loading="lazy">
+          <h3>SteamWorld Build</h3>
+          <p>Concept art, UI, and key art.</p>
+        </li>
+        <li class="title-card">
+          <img src="../shared/image/Headhunter.webp" alt="" loading="lazy">
+          <h3>Headhunter</h3>
+          <p>Concept art for environments, props, and cosmetics.</p>
+        </li>
+        <li class="title-card">
+          <div class="title-image" aria-hidden="true">Image</div>
+          <h3>A Journey Through Valhalla</h3>
+          <p>Key art for concept and promotion.</p>
+        </li>
+      </ul>
+    </section>
+    <section class="section framework-panel" id="education" aria-labelledby="education-title">
+      <h2 id="education-title">Education</h2>
+      <article class="experience-entry">
+        <header class="experience-header">
+          <h3>2D <span class="experience-company">· Futuregames, Stockholm</span></h3>
+          <p class="experience-year">Jan 2017 – May 2018</p>
+        </header>
+        <p class="experience-summary">Concept Art, UI/UX, Unity, Maya, Animations, Pre-Production, Game Projects</p>
+        <p>Advanced vocational education focused on 2D. Learning subjects to strengthen my skills as an artist with design compliments, iterations and ideations. But also increasing my work efficiency and communication/teamwork skills to prepare myself for the game industry.</p>
+        <p>During my education I got to take part of 3 game projects:</p>
+        <ul class="experience-work">
+          <li><strong>Infinite HellClimber</strong> (Concept Artist, Art Lead &amp; Asset Creator)<br>A 3 week mobile game project developed in Unity in collaboration with King</li>
+          <li><strong>The Thief’s Trail - A third-person stealth game</strong> (Concept Artist &amp; Art Director)<br>A 10 week third-person stealth game project developed in Unity</li>
+          <li><strong>NightTerrors - A VR-game</strong> (Concept Artist)<br>The first project and I did UI, key art, storyboards, logos, 2D assets and textures.</li>
+        </ul>
+      </article>
+      <article class="experience-entry">
+        <header class="experience-header">
+          <h3>Gamedesign <span class="experience-company">· Ljud- och Bildskolan Jönköping</span></h3>
+          <p class="experience-year">2011–2014</p>
+        </header>
+        <p class="experience-summary">Concept Art, 2D Animation, Maya, Game Projects</p>
+        <p>A highschool education that focused on graphics in both 2D and 3D, but also game design in terms of game mechanics, basic flowcharts and core gameplay circles.</p>
+      </article>
+    </section>
+    <div class="section portfolio-details">
+      <section class="framework-panel" aria-labelledby="additional-experience-title">
+        <h2 id="additional-experience-title">Additional Experience</h2>
+      </section>
+      <section class="framework-panel" aria-labelledby="tools-title">
+        <h2 id="tools-title">Tools &amp; Software</h2>
+        <ul class="experience-work">
+          <li>Photoshop</li>
+          <li>Blender</li>
+          <li>Unity</li>
+          <li>Git</li>
+        </ul>
+      </section>
+      <section class="framework-panel" aria-labelledby="languages-title">
+        <h2 id="languages-title">Language</h2>
+        <ul class="experience-work">
+          <li>Swedish · Native</li>
+          <li>English · Fluent</li>
+        </ul>
+      </section>
+    </div>
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div>
+        <h2 id="contact-title">Contact</h2>
+        <p><a href="mailto:max@deletedcookie.se">max@deletedcookie.se</a><br>Karlshamn, Sweden</p>
+      </div>
+    </section>
   </main>
   <footer class="shell"><span>Max Nafar</span><a href="#top">Back to top ↑</a></footer>
 </body>
