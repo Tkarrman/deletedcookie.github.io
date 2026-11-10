@@ -2,3 +2,40 @@
 
 /* Compact profile summaries, ready for approved copy. */
 .person-copy{gap:18px}.person-copy h2{margin-bottom:0}.person-copy .button{margin-top:auto}.service{min-height:180px}.studio-story{align-self:center}.studio-story .large-copy{margin-bottom:22px}
+
+.studio-title {
+  margin: 0;
+}
+
+.studio-title img {
+  display: block;
+  width: min(100%, 480px);
+  height: auto;
+}
+
+@media (min-width: 701px) {
+  .services-grid .service:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+.studio-projects article {
+  min-width: 0;
+  padding: 24px;
+  border-radius: 26px;
+  background: white;
+}
+
+.studio-projects img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 16px;
+}
+
+.studio-projects p {
+  margin-bottom: 4px;
+  color: var(--muted);
+}
