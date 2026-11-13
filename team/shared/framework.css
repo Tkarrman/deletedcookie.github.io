@@ -138,7 +138,8 @@
   list-style: none;
 }
 
-.profile-links a {
+.profile-links a,
+.profile-links button {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -147,6 +148,35 @@
 
 .profile-links a:not([href]) {
   color: var(--muted);
+  text-decoration: none;
+}
+
+.email-reveal,
+.contact-email {
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: 650;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+  text-align: left;
+  cursor: pointer;
+}
+
+.email-reveal:hover,
+.contact-email:hover {
+  color: #a73555;
+}
+
+.email-reveal:focus-visible {
+  outline: 3px solid var(--navy);
+  outline-offset: 5px;
+}
+
+.profile-email-reveal {
   text-decoration: none;
 }
 

@@ -39,3 +39,89 @@
   margin-bottom: 4px;
   color: var(--muted);
 }
+
+.team-contact {
+  padding: clamp(30px, 5vw, 58px);
+  border-radius: 34px 88px 34px 34px;
+  background: var(--blue);
+  overflow: hidden;
+}
+
+.contact-intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 34px;
+}
+
+.contact-intro > div { max-width: 690px; }
+.contact-intro h2 { font-size: clamp(44px, 6vw, 72px); }
+.contact-intro p:last-child { margin: 16px 0 0; color: #435a6f; }
+.team-contact .contact-flower { flex: 0 0 auto; font-size: clamp(80px, 11vw, 142px); }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.contact-person {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 24px;
+  border: 1px solid rgba(32, 46, 66, .12);
+  border-radius: 24px;
+  background: rgba(255,255,255,.88);
+}
+
+.contact-max { background: #f4f1e8; }
+.contact-siri { background: #edf5fb; }
+.contact-person-heading { display: flex; align-items: center; gap: 14px; }
+.contact-avatar {
+  display: block;
+  flex: 0 0 46px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 3px solid white;
+  object-fit: cover;
+  object-position: center 32%;
+  background: var(--paper);
+  box-shadow: 0 0 0 1px rgba(32,46,66,.15);
+}
+
+.contact-role { margin: 0 0 3px; color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; }
+.contact-person h3 { margin: 0; font-size: 20px; }
+.email-reveal,.contact-email {
+  align-self: flex-start;
+  margin: 25px 0 0;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  background: transparent;
+  color: var(--navy);
+  overflow-wrap: anywhere;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 750;
+  line-height: 1.5;
+  text-align: left;
+  cursor: pointer;
+}
+.email-reveal:hover,.contact-email:hover { color: #a73555; }
+.email-reveal:focus-visible { outline: 3px solid var(--navy); outline-offset: 6px; }
+@media (max-width: 900px) {
+  .contact-grid { grid-template-columns: 1fr; }
+  .contact-person { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 10px 24px; }
+  .email-reveal,.contact-email { margin: 0; justify-self: end; text-align: right; }
+}
+
+@media (max-width: 600px) {
+  .team-contact { border-radius: 28px 58px 28px 28px; }
+  .contact-intro { align-items: flex-start; margin-bottom: 26px; }
+  .team-contact .contact-flower { display: none; }
+  .contact-person { display: flex; align-items: stretch; }
+  .email-reveal,.contact-email { align-self: flex-start; margin: 20px 0 0; text-align: left; }
+}
